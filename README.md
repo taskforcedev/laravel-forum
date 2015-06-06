@@ -3,7 +3,22 @@ A drop-in forum module for Laravel 5.
 
 ## Installation
 
-composer install
+Add the package to your composer.json file in the require section
+
+<code>require {
+"taskforcedev/laravel-forum": "dev-master"
+}</code>
+
+(make sure you have the correct comma's after each line but the last to ensure valid json).
+Then run
+
+<code>composer install</code>
+
+add service provider to config/app.php
+<code>'providers' => [
+    ...
+    'Taskforcedev\LaravelForum\ServiceProvider',
+]</code>
 
 publish config/views
 php artisan vendor:publish
