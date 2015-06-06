@@ -1,15 +1,12 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
-use \Auth;
-use Illuminate\Routing\Controller;
-
-class ForumController extends Controller
+class ForumController extends BaseController
 {
     public function index()
     {
         $data = [
-            'user' => (Auth::check() ? \Auth::user() : ''),
-            'layout' => config('laravel-forum.layout'),
+            'user' => $this->getUser(),
+            'layout' => $this->getLayout(),
         ];
         return view('laravel-forum::forum/index', $data);
     }
