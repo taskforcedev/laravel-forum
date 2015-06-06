@@ -9,6 +9,15 @@ class ForumCategory extends Model
     public $fillable = ['name'];
 
     /**
+     * Eloquent Relation
+     * @return mixed
+     */
+    public function forums()
+    {
+        return $this->hasMany('Forum');
+    }
+
+    /**
      * Is model data valid.
      * @param array|object $data The data to validate.
      * @return boolean
