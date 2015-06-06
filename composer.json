@@ -1,0 +1,23 @@
+{
+  "name": "taskforcedev/laravel-forum",
+  "description": "A forum module for Laravel 5 websites.",
+  "keywords": [ "Forum", "Laravel" ],
+  "license": "GPLv2",
+  "type": "project",
+  "require": {
+    "laravel/framework": "5.0.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Taskforcedev\\LaravelForum\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  }
+}

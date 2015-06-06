@@ -1,6 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use \Schema;
+use Taskforcedev\LaravelForum\ForumCategory;
 
 class AdminController extends BaseController
 {
@@ -20,6 +21,35 @@ class AdminController extends BaseController
             'layout' => config('laravel-forum.layout'),
         ];
         return view('laravel-forum::admin/index', $data);
+    }
+
+    public function forums()
+    {
+        if (!$this->canAdministrate()) {
+            return \Redirect::route('forum.index');
+        }
+
+        $data = $this->buildData();
+        return view('laravel-forum::admin/forums', $data);
+    }
+
+    public function categories()
+    {
+        if (!$this->canAdministrate()) {
+            return \Redirect::route('forum.index');
+        }
+
+        $data = $this->buildData();
+        $data['categories'] = ForumCategory::all();
+        return view('laravel-forum::admin/categories', $data);
+    }
+
+    public function buildData()
+    {
+        return [
+            'user' => $this->getUser(),
+            'layout' => config('laravel-forum.layout'),
+        ];
     }
 
     public function installation()

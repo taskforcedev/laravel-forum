@@ -1,8 +1,8 @@
 <?php namespace Taskforcedev\LaravelForum;
 
-use Illuminate\Database\Eloquent\Model;
+use \Validator;
 
-class ForumCategory extends Model
+class ForumCategory extends AbstractModel
 {
     public $table = 'forum_categories';
 

@@ -22,4 +22,21 @@ class BaseController extends Controller
     {
         return config('laravel-forum.layout');
     }
+
+    /**
+     * Determine if the user can administrate the forums
+     * @return boolean
+     */
+    public function canAdministrate()
+    {
+        return true; // debug
+        $user = $this->getUser();
+
+        if (method_exists($user, 'can')) {
+            return $user->can('forum-administrate');
+        }
+
+        // If no method of authorizing return false;
+        return false;
+    }
 }
