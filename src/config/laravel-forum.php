@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'layout' => '',
+    'layout' => 'laravel-forum::layout:master',
+
+    'sitename' => 'Laravel',
 ];
