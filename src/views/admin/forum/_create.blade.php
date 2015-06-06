@@ -1,8 +1,21 @@
-<div id="category_create" style="display: none;" title="Create Category">
-    <form action="{{ URL::route('api.store.forum.category') }}" method="post">
+<?php
+    $url = URL::route('api.store.forum');
+?>
+<div id="forum_create" style="display: none;" title="Create Forum">
+    <form action="{{ $url }}" method="post">
 
         <label for="name">Name</label>
         <input class="form-control" type="text" id="name" />
+
+        <label for="name">Description</label>
+        <input class="form-control" type="text" id="description" />
+
+        <label for="category">Category</label>
+        <select class="form-control" id="category">
+            @foreach($categories as $cat)
+                {!! $cat->toOption() !!}
+            @endforeach
+        </select>
 
     </form>
 </div>
@@ -11,6 +24,8 @@
     $(function() {
         var dialog, form,
                 name = $( "#name" ),
+                description = $( "#description" ),
+                category_id = $( "#category" )
                 allFields = $( [] ).add( name ),
                 tips = $( ".validateTips" );
 
@@ -44,7 +59,7 @@
             }
         }
 
-        function addCategory() {
+        function addForum() {
             var valid = true;
             allFields.removeClass( "ui-state-error" );
 
@@ -52,13 +67,17 @@
 
             if ( valid ) {
                 var aName = name.val();
+                var aDesc = description.val();
+                var aCat  = category_id.val();
 
                 /* POST */
                 jQuery.ajax({
-                    url: "{{ URL::route('api.store.forum.category') }}",
+                    url: "{{ $url }}",
                     type: "POST",
                     data: {
                         "name": aName,
+                        "description": aDesc,
+                        "category_id": aCat,
                         "_token": "{{ csrf_token() }}"
                     },
                     success: function (response) {
@@ -72,13 +91,13 @@
             return valid;
         }
 
-        dialog = $( "#category_create" ).dialog({
+        dialog = $( "#forum_create" ).dialog({
             autoOpen: false,
             height: 300,
             width: 350,
             modal: true,
             buttons: {
-                "Create": addCategory,
+                "Create": addForum,
                 Cancel: function() {
                     dialog.dialog( "close" );
                 }
@@ -91,10 +110,10 @@
 
         form = dialog.find( "form" ).on( "submit", function( event ) {
             event.preventDefault();
-            addCategory();
+            addForum();
         });
 
-        $( "#createCategory" ).button().on( "click", function() {
+        $( "#createForum" ).button().on( "click", function() {
             dialog.dialog( "open" );
         });
     });

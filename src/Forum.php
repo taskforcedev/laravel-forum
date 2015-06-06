@@ -1,13 +1,13 @@
 <?php namespace Taskforcedev\LaravelForum;
 
 use \DB;
-use Illuminate\Database\Eloquent\Model;
+use \Validator;
 
-class Forum extends Model
+class Forum extends AbstractModel
 {
     public $table = 'forums';
 
-    public $fillable = ['name', 'description', 'category_id'];
+    public $fillable = ['name', 'description', 'category_id', 'public'];
 
     /**
      * Eloquent Relation
@@ -15,7 +15,12 @@ class Forum extends Model
      */
     public function category()
     {
-        return $this->belongsTo('ForumCategory');
+        return $this->belongsTo('Taskforcedev\LaravelForum\ForumCategory');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('ForumPost');
     }
 
     /**
@@ -40,8 +45,9 @@ class Forum extends Model
     public static function valid($data)
     {
         $rules = [
-            'name' => ['required', 'min:3'],
-            'category_id' => ['required', 'min:0', 'integer']
+            'name'        => 'required|min:3',
+            'description' => 'min:3',
+            'category_id' => 'required|min:0|integer|exists:forum_categories,id',
         ];
         $validator = Validator::make($data, $rules);
 

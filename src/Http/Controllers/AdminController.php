@@ -1,6 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use \Schema;
+use Taskforcedev\LaravelForum\Forum;
 use Taskforcedev\LaravelForum\ForumCategory;
 
 class AdminController extends BaseController
@@ -30,6 +31,8 @@ class AdminController extends BaseController
         }
 
         $data = $this->buildData();
+        $data['categories'] = ForumCategory::all();
+        $data['forums'] = Forum::all();
         return view('laravel-forum::admin/forums', $data);
     }
 

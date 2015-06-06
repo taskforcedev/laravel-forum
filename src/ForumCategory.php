@@ -34,4 +34,18 @@ class ForumCategory extends AbstractModel
         }
         return false;
     }
+
+    /**
+     * Returns the category as an html option.
+     * @return string
+     */
+    public function toOption()
+    {
+        return "<option value=\"{$this->id}\">{$this->name}</option>";
+    }
+
+    public function __toString()
+    {
+        return (string)$this->name;
+    }
 }

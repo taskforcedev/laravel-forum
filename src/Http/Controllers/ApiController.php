@@ -1,6 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use \Request;
+use \Response;
 use \Schema;
 use Taskforcedev\LaravelForum\Forum;
 use Taskforcedev\LaravelForum\ForumCategory;
@@ -32,6 +33,7 @@ class ApiController extends BaseController
     {
         $data = [
             "name" => Request::input('name'),
+            "description" => Request::input('description'),
             "category_id" => Request::input('category_id'),
         ];
 
