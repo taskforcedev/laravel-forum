@@ -14,7 +14,7 @@ class ForumCategory extends AbstractModel
      */
     public function forums()
     {
-        return $this->hasMany('Forum');
+        return $this->hasMany('Taskforcedev\LaravelForum\Forum', 'category_id', 'id');
     }
 
     /**
