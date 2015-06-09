@@ -5,7 +5,8 @@ use \Validator;
 /**
  * Class ForumCategory
  *
- * @property string $name
+ * @property integer $id
+ * @property string  $name
  *
  * @package Taskforcedev\LaravelForum
  */
