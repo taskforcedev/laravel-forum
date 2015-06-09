@@ -14,10 +14,5 @@
     "psr-4": {
       "Taskforcedev\\LaravelForum\\": "src/"
     }
-  },
-  "autoload-dev": {
-    "classmap": [
-      "tests/TestCase.php"
-    ]
   }
 }
