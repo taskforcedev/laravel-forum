@@ -1,5 +1,10 @@
 <?php namespace Taskforcedev\LaravelForum;
 
+/**
+ * Class ForumPost
+ *
+ * @package Taskforcedev\LaravelForum
+ */
 class ForumPost extends AbstractModel
 {
     public $table = 'forum_posts';

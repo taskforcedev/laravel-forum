@@ -2,6 +2,11 @@
 
 use \Validator;
 
+/**
+ * Class ForumReply
+ *
+ * @package Taskforcedev\LaravelForum
+ */
 class ForumReply extends AbstractModel
 {
     protected $table = 'forum_post_replies';
@@ -9,16 +14,30 @@ class ForumReply extends AbstractModel
     protected $hidden = [];
     protected $fillable = ['body', 'post_id', 'author_id'];
 
+    /**
+     * Eloquent Relation
+     * @return mixed
+     */
     public function author()
     {
         return $this->belongsTo('User');
     }
 
+    /**
+     * Returns the created_at date in a more readable form.
+     * @return string
+     */
     public function posted_at()
     {
         return date("d/m/Y",strtotime($this->created_at)) . ' @ ' . date("H:i",strtotime($this->created_at));
     }
 
+    /**
+     * Validates model data
+     * @param array $data The data to validate.
+     *
+     * @return boolean
+     */
     public static function valid($data)
     {
         $rules = [
@@ -34,6 +53,10 @@ class ForumReply extends AbstractModel
         return false;
     }
 
+    /**
+     * Gets the number of replies from the database.
+     * @return mixed
+     */
     public static function getReplyCount()
     {
         $results = DB::select('select COUNT(*) as count from forum_post_replies');

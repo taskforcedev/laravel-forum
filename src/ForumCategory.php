@@ -2,6 +2,11 @@
 
 use \Validator;
 
+/**
+ * Class ForumCategory
+ *
+ * @package Taskforcedev\LaravelForum
+ */
 class ForumCategory extends AbstractModel
 {
     public $table = 'forum_categories';
