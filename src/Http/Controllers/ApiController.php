@@ -89,7 +89,7 @@ class ApiController extends BaseController
         $data = [
             'author_id' => Request::input('author_id'),
             'body' => $this->sanitizeData(Request::input('body')),
-            'post_id' => Input::get('post_id'),
+            'post_id' => Request::input('post_id'),
         ];
 
         if (!ForumReply::valid($data)) {
