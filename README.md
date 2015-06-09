@@ -14,7 +14,7 @@ Add the package to your composer.json file in the require section
 (make sure you have the correct comma's after each line but the last to ensure valid json).
 Then run
 
-<code>composer install</code>
+<code>composer update</code>
 
 add service provider to config/app.php
 <code>'providers' => [
