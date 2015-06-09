@@ -92,11 +92,11 @@ class ApiController extends BaseController
             'post_id' => Input::get('post_id'),
         ];
 
-        if (!ForumPostReply::valid($data)) {
+        if (!ForumReply::valid($data)) {
             return Redirect::route('forum.post.view', $data['post_id']);
         }
 
-        $reply = ForumPostReply::create($data);
+        $reply = ForumReply::create($data);
         /* Fire event notification */
         $post = ForumPost::getPostById($data['post_id']);
         $op_user = User::where('id', $post->author_id)->first(); // Original Post Author
