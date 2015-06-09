@@ -54,17 +54,34 @@ class BaseController extends Controller
     public function guest()
     {
         /* Get the namespace */
-        $ns = $this->getNamespace();
-        if ($ns) {
-            $model = $ns . 'User';
+        $model = $this->getUserModel();
+        if ($model) {
             $guest = new $model();
             $guest->name = 'Guest';
             $guest->email = 'guest@example.com';
         } else {
             $guest = (object)['name' => 'Guest', 'email' => 'guest@example.com'];
         }
-
         return $guest;
+    }
+
+    public function getUserModel()
+    {
+        /* Get the namespace */
+        $ns = $this->getNamespace();
+
+        if ($ns) {
+            $model = $ns . 'User';
+            if (class_exists($model)) {
+                return $model;
+            }
+
+            $model = $ns . 'Models/User';
+            if (class_exists($model)) {
+                return $model;
+            }
+        }
+        return false;
     }
 
     public function getNamespace()
