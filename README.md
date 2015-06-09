@@ -1,5 +1,7 @@
-# l5-forum
+# Laravel Forum
 A drop-in forum module for Laravel 5.
+
+[![Dependencies Status](https://depending.in/taskforcedev/laravel-forum.png)](http://depending.in/taskforcedev/laravel-forum)
 
 ## Installation
 
