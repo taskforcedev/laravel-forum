@@ -71,6 +71,7 @@ class BaseController extends Controller
     {
         try {
             $ns = $this->getAppNamespace();
+            return $ns;
         } catch (\Exception $e) {
             return false;
         }
