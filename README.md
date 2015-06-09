@@ -5,28 +5,28 @@ A drop-in forum module for Laravel 5.
 
 ## Installation
 
-Add the package to your composer.json file in the require section
-
+### Step 1: Add the package to your composer.json file in the require section.
 <code>require {
 "taskforcedev/laravel-forum": "dev-master"
 }</code>
 
 (make sure you have the correct comma's after each line but the last to ensure valid json).
-Then run
 
+### Step 2: Then run composer update.
 <code>composer update</code>
 
-add service provider to config/app.php
+### Step 3: Add service provider to config/app.php.
 
 'providers' => [
     ...
     <code>'Taskforcedev\LaravelForum\ServiceProvider',</code>
 ]
 
-publish config/views
-php artisan vendor:publish
+### Step 4: Publish Config/Views.
+<code>php artisan vendor:publish</code>
 
-edit config/laravel-forum to include view layout.
+### Step 5: Edit config.
+edit config/laravel-forum to include your apps view layout (unless you really wish to use the packages default).
 
 ## Feedback / Outstanding
 We use github issues for feature requests, bug reports, etc. If you would like to see what is currently being worked on or outstanding you can view our board on [Waffle.io](https://waffle.io/taskforcedev/laravel-forum)
