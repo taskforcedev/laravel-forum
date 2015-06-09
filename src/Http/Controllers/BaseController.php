@@ -51,6 +51,10 @@ class BaseController extends Controller
         return true; // while developing return true.
     }
 
+    /**
+     * Retrieve a user model or object for the Guest user.
+     * @return object
+     */
     public function guest()
     {
         /* Get the namespace */
@@ -65,6 +69,10 @@ class BaseController extends Controller
         return $guest;
     }
 
+    /**
+     * Attempt to retrieve the user model class name (namespaced).
+     * @return boolean|string
+     */
     public function getUserModel()
     {
         /* Get the namespace */
@@ -84,6 +92,10 @@ class BaseController extends Controller
         return false;
     }
 
+    /**
+     * Attempt to retrieve the applications namespace.
+     * @return string|boolean
+     */
     public function getNamespace()
     {
         try {
