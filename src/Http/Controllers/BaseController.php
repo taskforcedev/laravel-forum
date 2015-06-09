@@ -2,6 +2,7 @@
 
 use \Auth;
 use Illuminate\Routing\Controller;
+use Illuminate\Console\AppNamespaceDetectorTrait;
 
 class BaseController extends Controller
 {
