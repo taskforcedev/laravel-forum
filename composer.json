@@ -2,7 +2,7 @@
   "name": "taskforcedev/laravel-forum",
   "description": "A forum module for Laravel 5 websites.",
   "keywords": [ "Forum", "Laravel" ],
-  "license": "GPLv2",
+  "license": "GPL-2.0",
   "type": "project",
   "require": {
     "laravel/framework": "5.0.*"
