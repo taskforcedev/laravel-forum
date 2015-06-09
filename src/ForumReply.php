@@ -1,6 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum;
 
-class ForumReply extends Eloquent
+class ForumReply extends AbstractModel
 {
     protected $table = 'forum_post_replies';
 
