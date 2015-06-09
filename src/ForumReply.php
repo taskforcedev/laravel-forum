@@ -1,4 +1,4 @@
-<?php
+<?php namespace Taskforcedev\LaravelForum;
 
 class ForumReply extends Eloquent
 {
