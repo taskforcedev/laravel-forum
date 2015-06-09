@@ -1,7 +1,7 @@
 # Laravel Forum
 A drop-in forum module for Laravel 5.
 
-[![Dependencies Status](https://depending.in/taskforcedev/laravel-forum.png)](http://depending.in/taskforcedev/laravel-forum) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0c79cbbe-c7e6-4223-8379-a0f445cfdf66/big.png)](https://insight.sensiolabs.com/projects/0c79cbbe-c7e6-4223-8379-a0f445cfdf66)
+[![Dependencies Status](https://depending.in/taskforcedev/laravel-forum.png)](http://depending.in/taskforcedev/laravel-forum) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0c79cbbe-c7e6-4223-8379-a0f445cfdf66/big.png)](https://insight.sensiolabs.com/projects/0c79cbbe-c7e6-4223-8379-a0f445cfdf66) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/taskforcedev/laravel-forum/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/taskforcedev/laravel-forum/?branch=master)
 
 ## Installation
 
