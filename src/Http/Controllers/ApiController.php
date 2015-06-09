@@ -64,7 +64,6 @@ class ApiController extends BaseController
         ];
 
         if (!ForumPost::valid($data)) {
-            \Log::debug($data);
             return Response::make('Bad Request', 400);
         }
 
@@ -96,18 +95,7 @@ class ApiController extends BaseController
             return Redirect::route('forum.post.view', $data['post_id']);
         }
 
-        $reply = ForumReply::create($data);
-        /* Fire event notification */
-        $post = ForumPost::getPostById($data['post_id']);
-        $op_user = User::where('id', $post->author_id)->first(); // Original Post Author
-
-        $eData = [
-            'author_name' => User::getUsersUsername($data['author_id']),
-            'post_name' => $post->title,
-            'email' => $op_user->email
-        ];
-
-        Event::fire('forum.post.reply', $eData);
+        ForumReply::create($data);
 
         return Redirect::route('forum.post.view', $data['post_id']);
     }
