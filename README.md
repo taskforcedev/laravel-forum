@@ -17,10 +17,11 @@ Then run
 <code>composer update</code>
 
 add service provider to config/app.php
-<code>'providers' => [
+
+'providers' => [
     ...
-    'Taskforcedev\LaravelForum\ServiceProvider',
-]</code>
+    <code>'Taskforcedev\LaravelForum\ServiceProvider',</code>
+]
 
 publish config/views
 php artisan vendor:publish
