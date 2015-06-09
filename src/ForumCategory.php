@@ -5,6 +5,8 @@ use \Validator;
 /**
  * Class ForumCategory
  *
+ * @property string $name
+ *
  * @package Taskforcedev\LaravelForum
  */
 class ForumCategory extends AbstractModel

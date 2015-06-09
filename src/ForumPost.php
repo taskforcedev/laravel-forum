@@ -3,6 +3,11 @@
 /**
  * Class ForumPost
  *
+ * @property string  $title
+ * @property string  $body
+ * @property integer $forum_id
+ * @property integer $author_id
+ *
  * @package Taskforcedev\LaravelForum
  */
 class ForumPost extends AbstractModel

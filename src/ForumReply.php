@@ -5,6 +5,10 @@ use \Validator;
 /**
  * Class ForumReply
  *
+ * @property string  $body
+ * @property integer $post_id
+ * @property integer $author_id
+ *
  * @package Taskforcedev\LaravelForum
  */
 class ForumReply extends AbstractModel
