@@ -52,6 +52,10 @@ class ForumCategory extends AbstractModel
         return "<option value=\"{$this->id}\">{$this->name}</option>";
     }
 
+    /**
+     * Return the category name as a string.
+     * @return string
+     */
     public function __toString()
     {
         return (string)$this->name;
