@@ -1,5 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum;
 
+use \Validator;
+
 class ForumReply extends AbstractModel
 {
     protected $table = 'forum_post_replies';
