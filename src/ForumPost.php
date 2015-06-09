@@ -1,8 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ForumPost extends Model
+class ForumPost extends AbstractModel
 {
     public $table = 'forum_posts';
 
