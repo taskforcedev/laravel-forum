@@ -5,13 +5,20 @@ use Illuminate\Routing\Controller;
 
 class BaseController extends Controller
 {
+    use AppNamespaceDetectorTrait;
+
     /**
      * Returns the user object (or guest).
      * @return object
      */
     public function getUser()
     {
-        return (Auth::check() ? \Auth::user() : (object)['name' => 'Guest', 'email' => 'guest@example.com']);
+        if (Auth::check()) {
+            return Auth::user();
+        } else {
+            // get guest (user model
+        }
+        return (Auth::check() ? \Auth::user() : $this->guest());
     }
 
     /**
@@ -29,14 +36,42 @@ class BaseController extends Controller
      */
     public function canAdministrate()
     {
-        return true; // debug
         $user = $this->getUser();
+
+        if ($user->name == 'Guest' && $user->email == 'guest@example.com') {
+            return false;
+        }
 
         if (method_exists($user, 'can')) {
             return $user->can('forum-administrate');
         }
 
         // If no method of authorizing return false;
-        return false;
+        return true; // while developing return true.
+    }
+
+    public function guest()
+    {
+        /* Get the namespace */
+        $ns = $this->getNamespace();
+        if ($ns) {
+            $model = $ns . 'User';
+            $guest = new $model();
+            $guest->name = 'Guest';
+            $guest->email = 'guest@example.com';
+        } else {
+            $guest = (object)['name' => 'Guest', 'email' => 'guest@example.com'];
+        }
+
+        return $guest;
+    }
+
+    public function getNamespace()
+    {
+        try {
+            $ns = $this->getAppNamespace();
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }
