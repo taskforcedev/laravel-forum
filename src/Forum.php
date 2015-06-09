@@ -3,6 +3,11 @@
 use \DB;
 use \Validator;
 
+/**
+ * Class Forum
+ *
+ * @package Taskforcedev\LaravelForum
+ */
 class Forum extends AbstractModel
 {
     public $table = 'forums';
