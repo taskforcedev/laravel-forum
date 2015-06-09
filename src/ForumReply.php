@@ -1,5 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum;
 
+use \DB;
 use \Validator;
 
 /**
