@@ -1,5 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
+use \Auth;
 use \Request;
 use \Response;
 use \Schema;
@@ -87,7 +88,7 @@ class ApiController extends BaseController
 
         $data = [
             'author_id' => Request::input('author_id'),
-            'body' => $this->sanitizeData(Input::get('body')),
+            'body' => $this->sanitizeData(Request::input('body')),
             'post_id' => Input::get('post_id'),
         ];
 
