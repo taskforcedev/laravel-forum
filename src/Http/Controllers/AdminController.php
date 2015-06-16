@@ -17,10 +17,7 @@ class AdminController extends BaseController
             return \Redirect::route('forum.index');
         }
 
-        $data = [
-            'user' => $this->getUser(),
-            'layout' => config('laravel-forum.layout'),
-        ];
+        $data = $this->buildData();
         return view('laravel-forum::admin/index', $data);
     }
 
@@ -51,6 +48,7 @@ class AdminController extends BaseController
     {
         return [
             'user' => $this->getUser(),
+            'modalType' => $this->getModalType(),
             'layout' => config('laravel-forum.layout'),
         ];
     }
