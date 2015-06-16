@@ -22,8 +22,8 @@ A drop-in forum module for Laravel 5.
     <code>'Taskforcedev\LaravelForum\ServiceProvider',</code>
 ]
 
-### Step 4: Publish Config/Views.
-<code>php artisan vendor:publish</code>
+### Step 4: Publish Config.
+<code>php artisan vendor:publish --provider="Taskforcedev\LaravelForum\ServiceProvider" --tag="config"</code>
 
 ### Step 5: Edit config.
 edit config/laravel-forum to include your apps view layout (unless you really wish to use the packages default).
