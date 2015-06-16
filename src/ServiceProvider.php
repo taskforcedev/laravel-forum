@@ -24,7 +24,7 @@ class ServiceProvider extends IlluminateServiceProvider
         // Publish Config
         $this->publishes([
             __DIR__.'/config/laravel-forum.php' => config_path('laravel-forum.php'),
-        ]);
+        ], 'config');
 
         $this->mergeConfigFrom(
             __DIR__.'/config/laravel-forum.php', 'laravel-forum'
