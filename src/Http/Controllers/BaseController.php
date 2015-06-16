@@ -31,6 +31,11 @@ class BaseController extends Controller
         return config('laravel-forum.layout');
     }
 
+    public function getModalType()
+    {
+        return config('laravel-forum.modal.type');
+    }
+
     /**
      * Determine if the user can administrate the forums
      * @return boolean
