@@ -15,7 +15,16 @@
                     <h2>Forums
 
                         @if(isset($categories) && !empty($categories))
-                            <button class="btn-primary btn btn-sm pull-right" id="createForum"><span class="glyphicon glyphicon-pencil"></span> Create Forum</button>
+                            <button class="btn-primary btn btn-sm pull-right"
+
+                            @if (isset($modalType) && $modalType == 'bootstrap')
+                                data-toggle="modal"
+                                data-target="#createForumModal"
+                            @else
+                                id="createForum"
+                            @endif
+
+                            ><span class="glyphicon glyphicon-pencil"></span> Create Forum</button>
                         @else
                             <button class="btn btn-sm pull-right disabled"><span class="glyphicon glyphicon-pencil"></span> Create Forum</button>
                         @endif
