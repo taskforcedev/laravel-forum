@@ -2,9 +2,10 @@
 
 Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers'], function() {
     // Public Routes
-    Route::get('forum/{id}/post', [ 'as' => 'laravel-forum.write.post', 'uses' => 'ForumController@createPost' ]);
-    Route::get('forum/{id}',      [ 'as' => 'laravel-forum.view',       'uses' => 'ForumController@view'       ]);
-    Route::get('forum',           [ 'as' => 'laravel-forum.index',      'uses' => 'ForumController@index'      ]);
+    Route::get('forum/{id}/post/{pid}', [ 'as' => 'laravel-forum.view.post',  'uses' => 'ForumController@viewPost'   ]);
+    Route::get('forum/{id}/post',       [ 'as' => 'laravel-forum.write.post', 'uses' => 'ForumController@createPost' ]);
+    Route::get('forum/{id}',            [ 'as' => 'laravel-forum.view',       'uses' => 'ForumController@view'       ]);
+    Route::get('forum',                 [ 'as' => 'laravel-forum.index',      'uses' => 'ForumController@index'      ]);
 
     // Admin Routes.
     Route::group(['prefix' => 'admin'], function() {
