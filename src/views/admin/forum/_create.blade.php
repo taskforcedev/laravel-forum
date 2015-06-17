@@ -12,7 +12,8 @@ $fields = [
 $data = [
     'item' => 'Forum',
     'fields' => $fields,
-    'url' => URL::route('laravel-forum.api.store.forum')
+    'url' => URL::route('laravel-forum.api.store.forum'),
+    'done' => "location.reload();",
 ];
 ?>
 @include('laravel-forum::layout.bootstrap._createModal', $data)
