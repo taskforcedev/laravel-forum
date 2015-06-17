@@ -33,3 +33,14 @@ edit config/laravel-forum to include your apps view layout (unless you really wi
 
 ## Feedback / Outstanding
 We use github issues for feature requests, bug reports, etc. If you would like to see what is currently being worked on or outstanding you can view our board on [Waffle.io](https://waffle.io/taskforcedev/laravel-forum)
+
+## Usage
+In order to provide administrators access to add/edit/manage the forums we use a "can" method on the user model which is our convention.
+
+To provide basic addition functionality the following must return true.
+<code>$user->can('forum-administrate');</code>
+
+To grant users full moderation permissions we will implement checks based on the following.
+<code>$user->can('forum-moderate');</code>
+
+We will later add additional options to provide more comprehensive permissions.
