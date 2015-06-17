@@ -56,6 +56,22 @@ class BaseController extends Controller
         return false;
     }
 
+    public function canModerate()
+    {
+        $user = $this->getUser();
+
+        if ($user->name == 'Guest' && $user->email == 'guest@example.com') {
+            return false;
+        }
+
+        if (method_exists($user, 'can')) {
+            return $user->can('forum-moderate');
+        }
+
+        // If no method of authorizing return false;
+        return false;
+    }
+
     /**
      * Retrieve a user model or object for the Guest user.
      * @return object
