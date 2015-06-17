@@ -7,7 +7,13 @@ class ForumController extends BaseController
     public function index()
     {
         $data = $this->buildData();
-        return view('laravel-forum::forum/index', $data);
+        return view('laravel-forum::forum.index', $data);
+    }
+
+    public function view($id)
+    {
+        $data = $this->buildData();
+        return view('laravel-forum::forum.forum', $data);
     }
 
     private function buildData()
