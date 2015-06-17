@@ -43,4 +43,6 @@ To grant users full moderation permissions we will implement checks based on the
 We will later add additional options to provide more comprehensive permissions.
 
 ## Feedback / Outstanding
-We use github issues for feature requests, bug reports, etc. If you would like to see what is currently being worked on or outstanding you can view our board on [Waffle.io](https://waffle.io/taskforcedev/laravel-forum)
+We use Producteev for project management, eg: feature requests, bug reports, etc. If you would like to see what is currently planned or being worked on you can view our board on [Producteev](https://www.producteev.com/workspace/p/55803343b1fa09c213000002).
+
+We also check github issues frequently so you can alternatively raise issues here. 
