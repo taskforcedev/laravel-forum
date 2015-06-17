@@ -1,5 +1,9 @@
 @extends($layout)
 
 @section('content')
-    <h1>{{ $sitename or 'Laravel' }} Forums</h1>
+    <h1>{{ $forum->name }}</h1>
+
+    <?php
+        $posts = $forum->posts;
+    ?>
 @stop
