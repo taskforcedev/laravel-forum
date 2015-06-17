@@ -13,7 +13,7 @@
                     <h2>Categories <button class="btn-primary btn btn-sm pull-right"
                         @if (isset($modalType) && $modalType == 'bootstrap')
                             data-toggle="modal"
-                            data-target="createCategoryModal"
+                            data-target="#createCategoryModal"
                         @else
                             id="createCategory"
                         @endif
