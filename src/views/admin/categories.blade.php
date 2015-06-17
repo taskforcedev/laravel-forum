@@ -1,8 +1,6 @@
 @extends($layout)
 
 @section('content')
-    @include('laravel-forum::layout.jquery._detect')
-    @include('laravel-forum::layout.bootstrap._detect')
     <h1>Forum Administration</h1>
 
     <div class="row">
