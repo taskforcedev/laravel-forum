@@ -10,7 +10,15 @@
 
             <div class="panel">
                 <div class="panel-heading panel-primary">
-                    <h2>Categories <button class="btn-primary btn btn-sm pull-right" id="createCategory"><span class="glyphicon glyphicon-pencil"></span> Create Category</button></h2>
+                    <h2>Categories <button class="btn-primary btn btn-sm pull-right"
+                        @if (isset($modalType) && $modalType == 'bootstrap')
+                            data-toggle="modal"
+                            data-target="createCategoryModal"
+                        @else
+                            id="createCategory"
+                        @endif
+                    ><span class="glyphicon glyphicon-pencil"></span> Create Category</button>
+                    </h2>
                 </div>
                 <div class="panel-body">
 
