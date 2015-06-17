@@ -29,7 +29,7 @@ class Forum extends AbstractModel
 
     public function posts()
     {
-        return $this->hasMany('ForumPost');
+        return $this->hasMany('Taskforcedev\LaravelForum\ForumPost');
     }
 
     /**
