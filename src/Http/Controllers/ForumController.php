@@ -1,5 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
+use Taskforcedev\LaravelForum\Forum;
 use Taskforcedev\LaravelForum\ForumCategory;
 
 class ForumController extends BaseController
@@ -13,7 +14,13 @@ class ForumController extends BaseController
     public function view($id)
     {
         $data = $this->buildData();
-        return view('laravel-forum::forum.forum', $data);
+        try {
+            $forum = Forum::where('id', $id)->firstOrFail();
+            $data['forum'] = $forum;
+            return view('laravel-forum::forum.forum', $data);
+        } catch (\Exception $e) {
+            return view('404');
+        }
     }
 
     private function buildData()
