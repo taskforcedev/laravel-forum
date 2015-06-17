@@ -35,7 +35,7 @@ class ApiController extends BaseController
         $data = [
             "name" => Request::input('name'),
             "description" => Request::input('description'),
-            "category_id" => Request::input('category_id'),
+            "category_id" => Request::input('category'),
         ];
 
         $response = $this->adminCheck();
