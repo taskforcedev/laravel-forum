@@ -1,5 +1,5 @@
 <?php
-    $url = URL::route('api.store.forum');
+    $url = URL::route('laravel-forum.api.store.forum');
 ?>
 <div id="forum_create" style="display: none;" title="Create Forum">
     <form action="{{ $url }}" method="post">
