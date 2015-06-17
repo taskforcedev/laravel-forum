@@ -53,7 +53,7 @@ class BaseController extends Controller
         }
 
         // If no method of authorizing return false;
-        return true; // while developing return true.
+        return false;
     }
 
     /**
