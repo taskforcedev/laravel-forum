@@ -26,7 +26,7 @@
                         <ul class="list-group">
                         @foreach($categories as $cat)
                             <div class="forum category"></div>
-                                <li class="list-group-item">{{ $cat->name }}</li>
+                                <li class="list-group-item">{{ $cat->name }} <button class="btn btn-danger">Delete</button></li>
                         @endforeach
                         </ul>
                     @endif
