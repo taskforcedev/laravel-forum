@@ -12,7 +12,7 @@
         <table class="table">
         @foreach($posts as $post)
             <?php $replies = $post->replies; $replyCount = count($post->replies); ?>
-            <tr><td><a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' $post->id]) }}">{{ $post->title }}</a></td>{{ $replyCount }}</tr>
+            <tr><td><a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>{{ $replyCount }}</tr>
         @endforeach
         </table>
     @else
