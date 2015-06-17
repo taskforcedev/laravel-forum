@@ -14,7 +14,7 @@
                 </thead>
                 @foreach($cat->forums as $forum)
                     <tr class="forum">
-                        <td>{{ $forum->name }}</td>
+                        <td>{{ $forum->name }} <small>{{ $forum->description }}</small></td>
                         <td>{{ $forum->getThreadCount() }}</td>
                     </tr>
                 @endforeach
