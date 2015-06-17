@@ -10,7 +10,7 @@ $fields = [
     ]
 ];
 $data = [
-    'item' => 'Category',
+    'item' => 'Forum',
     'fields' => $fields,
     'url' => URL::route('laravel-forum.api.store.forum')
 ];
