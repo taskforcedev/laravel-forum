@@ -8,4 +8,4 @@ $data = [
     'url' => URL::route('laravel-forum.api.store.forum.category')
 ];
 ?>
-@include('layout.bootstrap._createModal', $data)
+@include('laravel-forum::layout.bootstrap._createModal', $data)
