@@ -3,6 +3,9 @@ A drop-in forum module for Laravel 5.
 
 [![Dependencies Status](https://depending.in/taskforcedev/laravel-forum.png)](http://depending.in/taskforcedev/laravel-forum) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/0c79cbbe-c7e6-4223-8379-a0f445cfdf66/big.png)](https://insight.sensiolabs.com/projects/0c79cbbe-c7e6-4223-8379-a0f445cfdf66) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/taskforcedev/laravel-forum/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/taskforcedev/laravel-forum/?branch=master)
 
+## Requirements
+This package requires jQuery and Bootstrap JS to be included in the head of your layout (or you can use the default layout provided) - you can publish this layout if you wish add your own css/code on top of the default. 
+
 ## Installation
 
 ### Step 1: Add the package to your composer.json file in the require section.
