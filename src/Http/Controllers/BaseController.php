@@ -3,6 +3,7 @@
 use \Auth;
 use Illuminate\Routing\Controller;
 use Illuminate\Console\AppNamespaceDetectorTrait;
+use Taskforcedev\LaravelForum\ForumCategory;
 
 class BaseController extends Controller
 {
