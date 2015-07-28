@@ -105,7 +105,7 @@ class ApiController extends BaseController
         return Redirect::route('forum.post.view', $data['post_id']);
     }
 
-    public function adminCheck()
+    private function adminCheck()
     {
         if (!$this->canAdministrate()) {
             return Response::make('Unauthorised', 401);
