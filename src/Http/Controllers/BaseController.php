@@ -40,7 +40,7 @@ class BaseController extends Controller
      * Determine if the user can administrate the forums
      * @return boolean
      */
-    public function canAdministrate()
+    protected function canAdministrate()
     {
         $user = $this->getUser();
 
@@ -56,7 +56,7 @@ class BaseController extends Controller
         return false;
     }
 
-    public function canModerate()
+    protected function canModerate()
     {
         $user = $this->getUser();
 
@@ -125,5 +125,15 @@ class BaseController extends Controller
         } catch (\Exception $e) {
             return false;
         }
+    }
+
+    protected function buildData()
+    {
+        return [
+            'user' => $this->getUser(),
+            'layout' => $this->getLayout(),
+            'categories' => ForumCategory::with('forums')->get(),
+            'sitename' => config('laravel-forum.sitename'),
+        ];
     }
 }

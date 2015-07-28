@@ -34,14 +34,4 @@ class ForumController extends BaseController
             return view('404');
         }
     }
-
-    private function buildData()
-    {
-        return [
-            'user' => $this->getUser(),
-            'layout' => $this->getLayout(),
-            'categories' => ForumCategory::with('forums')->get(),
-            'sitename' => config('laravel-forum.sitename'),
-        ];
-    }
 }
