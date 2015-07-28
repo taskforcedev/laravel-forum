@@ -72,8 +72,7 @@ class AdminController extends BaseController
 
     public function installation()
     {
-        if (!Schema::hasTable('forums'))
-        {
+        if (!Schema::hasTable('forums')) {
             $this->migrate();
 
             if (!Schema::hasTable('forums')) {

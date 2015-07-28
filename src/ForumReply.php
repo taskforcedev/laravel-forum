@@ -29,15 +29,6 @@ class ForumReply extends AbstractModel
     }
 
     /**
-     * Returns the created_at date in a more readable form.
-     * @return string
-     */
-    public function posted_at()
-    {
-        return date("d/m/Y",strtotime($this->created_at)) . ' @ ' . date("H:i",strtotime($this->created_at));
-    }
-
-    /**
      * Validates model data
      * @param array $data The data to validate.
      *

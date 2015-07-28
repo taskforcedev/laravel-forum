@@ -5,6 +5,8 @@
     <file>./src/</file>
 
     <exclude-pattern>*/config/*</exclude-pattern>
+    <exclude-pattern>*/views/*</exclude-pattern>
+    <exclude-pattern>routes.php</exclude-pattern>
 
     <arg name="report" value="summary"/>
 

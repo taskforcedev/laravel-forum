@@ -27,14 +27,16 @@ class ServiceProvider extends IlluminateServiceProvider
         ], 'config');
 
         $this->mergeConfigFrom(
-            __DIR__.'/config/laravel-forum.php', 'laravel-forum'
+            __DIR__.'/config/laravel-forum.php',
+            'laravel-forum'
         );
 
         // Merge default Config
         $published = __DIR__.'/../../../../config/laravel-forum.php';
         if (file_exists($published)) {
             $this->mergeConfigFrom(
-                $published, 'laravel-forum'
+                $published,
+                'laravel-forum'
             );
         }
     }

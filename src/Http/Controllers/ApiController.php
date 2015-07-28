@@ -123,7 +123,7 @@ class ApiController extends BaseController
             '/<script\b[^>]*>/',
             '/<\/script\b[^>]*>/'
         ];
-        foreach($removals as $r) {
+        foreach ($removals as $r) {
             $data = preg_replace($r, '', $data);
         }
         return $data;
