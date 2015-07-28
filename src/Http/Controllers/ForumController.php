@@ -1,7 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use Taskforcedev\LaravelForum\Forum;
-use Taskforcedev\LaravelForum\ForumCategory;
 
 class ForumController extends BaseController
 {
