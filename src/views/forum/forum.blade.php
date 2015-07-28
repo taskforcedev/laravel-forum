@@ -10,10 +10,23 @@
 
     @if ($postCount > 0)
         <table class="table">
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Replies</th>
+                    <th>Latest Reply</th>
+                </tr>
+            </thead>
+            <tbody>
         @foreach($posts as $post)
             <?php $replies = $post->replies; $replyCount = count($post->replies); ?>
-            <tr><td><a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>{{ $replyCount }}</tr>
+            <tr>
+                <td><a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>
+                <td>{{ $replyCount }}</td>
+                <td>by {{ $post->lastReply['author'] }}<br/>at {{ $post->lastReply['date'] }}</td>
+            </tr>
         @endforeach
+            </tbody>
         </table>
     @else
         <p>There are currently no posts in this forum</p>
