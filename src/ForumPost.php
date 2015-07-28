@@ -30,4 +30,15 @@ class ForumPost extends AbstractModel
     {
         return $this->hasMany('ForumReply');
     }
+
+    public function lastReply()
+    {
+        $replies = ForumReply::where('post_id', $this->id)->get();
+        $reply = $replies->last();
+
+        return [
+            'author' => $reply->author->username,
+            'date' => $reply->created_at
+        ];
+    }
 }
