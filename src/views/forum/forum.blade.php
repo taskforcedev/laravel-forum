@@ -1,14 +1,12 @@
 @extends($layout)
 
 @section('content')
-    <h1>{{ $forum->name }}</h1>
+    <h1>{{ $forum->name }} <a class="btn btn-sm btn-primary" href="{{ route('laravel-forum.write.post') }}">New Post</a></h1>
 
     <?php
         $posts = $forum->posts;
         $postCount = count($posts);
     ?>
-
-    <a class="btn" href="{{ route('laravel-forum.write.post') }}">New Post</a>
 
     @if ($postCount > 0)
         <table class="table">
