@@ -31,14 +31,22 @@ class ForumPost extends AbstractModel
         return $this->hasMany('ForumReply');
     }
 
+    /**
+     * Gets the last reply for the current forum post.
+     * @return array
+     */
     public function lastReply()
     {
-        $replies = ForumReply::where('post_id', $this->id)->get();
-        $reply = $replies->last();
+        try {
+            $replies = ForumReply::where('post_id', $this->id)->get();
+            $reply = $replies->last();
 
-        return [
-            'author' => $reply->author->username,
-            'date' => $reply->created_at
-        ];
+            return [
+                'author' => $reply->author->username,
+                'date' => $reply->created_at
+            ];
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 }
