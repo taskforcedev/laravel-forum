@@ -11,6 +11,7 @@
     <textarea class="form-control" name="body" id="body" rows="20">
     </textarea>
 
+    <input type="hidden" name="token" id="token" value="{{ csrf_token() }}" />
     <input type="hidden" name="forum_id" id="forum_id" value="{{ $forum->id }}" />
 
     <input type="submit" class="btn btn-success" />
