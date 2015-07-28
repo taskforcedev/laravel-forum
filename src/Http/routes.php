@@ -18,7 +18,7 @@ Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers'], func
     Route::group(['prefix' => 'api'], function() {
         Route::post('forum_category', [ 'as' => 'laravel-forum.api.store.forum.category', 'uses' => 'ApiController@forumCategoryStore' ]);
         Route::post('forum',          [ 'as' => 'laravel-forum.api.store.forum',          'uses' => 'ApiController@forumStore'         ]);
-        Route::post('forum_post',     [ 'as' => 'laravel-forum.api.store.forum.post',     'uses' => 'ApiController@forumPostStore'         ]);
-        Route::post('forum_reply',    [ 'as' => 'laravel-forum.api.store.forum.reply',    'uses' => 'ApiController@forumReplyStore'         ]);
+        Route::post('forum_post',     [ 'as' => 'laravel-forum.api.store.forum.post',     'uses' => 'ApiController@forumPostStore'     ]);
+        Route::post('forum_reply',    [ 'as' => 'laravel-forum.api.store.forum.reply',    'uses' => 'ApiController@forumReplyStore'    ]);
     });
 });
