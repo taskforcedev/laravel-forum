@@ -16,25 +16,46 @@ class ForumController extends BaseController
 
     public function view($id)
     {
-        $data = $this->buildData();
-        try {
-            $forum = Forum::where('id', $id)->firstOrFail();
-            $data['forum'] = $forum;
-            return view('laravel-forum::forum.forum', $data);
-        } catch (\Exception $e) {
+        $forum = $this->validateForumId($id);
+
+        if ($forum === false) {
             return view('404');
         }
+
+        $data = $this->buildData();
+        $data['forum'] = $forum;
+
+        return view('laravel-forum::forum.forum', $data);
     }
 
     public function createPost($forum_id)
     {
-        try {
-            $forum = Forum::where('id', $forum_id)->firstOrFail();
-            $data = $this->buildData();
-            $data['forum_id'] = $forum_id;
-            return view('forum/createPost', $data);
-        } catch (\Exception $e) {
+        $forum = $this->validateForumId($forum_id);
+
+        if ($forum === false) {
             return view('404');
+        }
+
+        $data = $this->buildData();
+        $data['forum'] = $forum;
+
+        return view('forum/createPost', $data);
+    }
+
+    /**
+     * Validates if the forum exists, if so returns it.
+     *
+     * @param integer $id
+     *
+     * @return mixed
+     */
+    private function validateForumId($id)
+    {
+        try {
+            $forum = Forum::where('id', $id)->firstOrFail();
+            return $forum;
+        } catch (\Exception $e) {
+            return false;
         }
     }
 }
