@@ -39,7 +39,7 @@ class ForumController extends BaseController
         $data = $this->buildData();
         $data['forum'] = $forum;
 
-        return view('forum/createPost', $data);
+        return view('laravel-forum::forum.createPost', $data);
     }
 
     /**
