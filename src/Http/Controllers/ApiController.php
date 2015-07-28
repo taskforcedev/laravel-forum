@@ -56,8 +56,10 @@ class ApiController extends BaseController
             return Response::make('Unauthorized', 401);
         }
 
+        $user = Auth::user();
+
         $data = [
-            "author_id" => Request::input('author_id'),
+            "author_id" => $user->id,
             "title" => Request::input('title'),
             "body" => $this->sanitizeData(Request::input('body')),
             "forum_id" => Request::input('forum_id')
@@ -85,8 +87,10 @@ class ApiController extends BaseController
             return Response::make('Unauthorized', 401);
         }
 
+        $user = Auth::user();
+
         $data = [
-            'author_id' => Request::input('author_id'),
+            'author_id' => $user->id,
             'body' => $this->sanitizeData(Request::input('body')),
             'post_id' => Request::input('post_id'),
         ];
