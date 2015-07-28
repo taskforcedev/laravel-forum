@@ -4,8 +4,16 @@ use \Schema;
 use Taskforcedev\LaravelForum\Forum;
 use Taskforcedev\LaravelForum\ForumCategory;
 
+/**
+ * Class AdminController
+ * @package Taskforcedev\LaravelForum\Http\Controllers
+ */
 class AdminController extends BaseController
 {
+    /**
+     * Admin index.
+     * @return mixed
+     */
     public function index()
     {
         $install = $this->installation();
@@ -21,6 +29,9 @@ class AdminController extends BaseController
         return view('laravel-forum::admin/index', $data);
     }
 
+    /**
+     * @return mixed
+     */
     public function forums()
     {
         if (!$this->canAdministrate()) {
@@ -33,6 +44,9 @@ class AdminController extends BaseController
         return view('laravel-forum::admin/forums', $data);
     }
 
+    /**
+     * @return mixed
+     */
     public function categories()
     {
         if (!$this->canAdministrate()) {
@@ -44,6 +58,9 @@ class AdminController extends BaseController
         return view('laravel-forum::admin/categories', $data);
     }
 
+    /**
+     * @return array
+     */
     public function buildData()
     {
         return [
