@@ -23,10 +23,16 @@ class ForumController extends BaseController
         }
     }
 
-    public function createPost()
+    public function createPost($forum_id)
     {
-        $data = $this->buildData();
-        return view('forum/createPost', $data);
+        try {
+            $forum = Forum::where('id', $forum_id)->firstOrFail();
+            $data = $this->buildData();
+            $data['forum_id'] = $forum_id;
+            return view('forum/createPost', $data);
+        } catch (\Exception $e) {
+            return view('404');
+        }
     }
 
     private function buildData()
