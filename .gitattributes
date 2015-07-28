@@ -3,3 +3,4 @@
 LICENSE             export-ignore
 README.md           export-ignore
 phpcs.xml           export-ignore
+.travis.yml         export-ignore
