@@ -2,6 +2,10 @@
 
 use Taskforcedev\LaravelForum\Forum;
 
+/**
+ * Class ForumController
+ * @package Taskforcedev\LaravelForum\Http\Controllers
+ */
 class ForumController extends BaseController
 {
     public function index()

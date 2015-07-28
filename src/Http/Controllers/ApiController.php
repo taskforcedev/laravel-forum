@@ -10,6 +10,10 @@ use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\ForumPost;
 use Taskforcedev\LaravelForum\ForumReply;
 
+/**
+ * Class ApiController
+ * @package Taskforcedev\LaravelForum\Http\Controllers
+ */
 class ApiController extends BaseController
 {
     public function forumCategoryStore()

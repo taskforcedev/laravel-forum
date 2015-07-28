@@ -5,6 +5,10 @@ use Illuminate\Routing\Controller;
 use Illuminate\Console\AppNamespaceDetectorTrait;
 use Taskforcedev\LaravelForum\ForumCategory;
 
+/**
+ * Class BaseController
+ * @package Taskforcedev\LaravelForum\Http\Controllers
+ */
 class BaseController extends Controller
 {
     use AppNamespaceDetectorTrait;
@@ -32,6 +36,10 @@ class BaseController extends Controller
         return config('laravel-forum.layout');
     }
 
+    /**
+     * Gets the modal type preference from config.
+     * @return mixed
+     */
     public function getModalType()
     {
         return config('laravel-forum.modal.type');
@@ -57,6 +65,10 @@ class BaseController extends Controller
         return false;
     }
 
+    /**
+     * Determine if the user can moderate the forums.
+     * @return boolean
+     */
     protected function canModerate()
     {
         $user = $this->getUser();
@@ -128,6 +140,10 @@ class BaseController extends Controller
         }
     }
 
+    /**
+     * Builds data required for views.
+     * @return array
+     */
     protected function buildData()
     {
         return [
