@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+    <description>Laravel Forum CodeSniffer Configuration</description>
+
+    <file>./src/</file>
+
+    <exclude-pattern>*/config/*</exclude-pattern>
+
+    <arg name="report" value="summary"/>
+
+    <rule ref="PSR-2"/>
+</ruleset>
