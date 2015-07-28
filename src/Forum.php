@@ -9,6 +9,7 @@ use \Validator;
  * @property string  $name
  * @property string  $description
  * @property integer $category_id
+ * @property integer $public
  *
  * @package Taskforcedev\LaravelForum
  */
