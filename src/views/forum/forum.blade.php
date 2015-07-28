@@ -8,6 +8,8 @@
         $postCount = count($posts);
     ?>
 
+    <a class="btn" href="{{ route('laravel-forum.write.post') }}">New Post</a>
+
     @if ($postCount > 0)
         <table class="table">
         @foreach($posts as $post)
