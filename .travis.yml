@@ -9,5 +9,4 @@ install:
   - composer dumpautoload
 
 script:
- - phpunit --coverage-text
  - phpcs
