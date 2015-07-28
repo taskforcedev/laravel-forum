@@ -8,5 +8,5 @@
 
     <arg name="report" value="summary"/>
 
-    <rule ref="PSR-2"/>
+    <rule ref="PSR2"/>
 </ruleset>
