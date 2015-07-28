@@ -1,7 +1,7 @@
 @extends($layout)
 
 @section('content')
-    <h1>{{ $forum->name }} <a class="btn btn-sm btn-primary pull-right" href="{{ route('laravel-forum.write.post') }}">New Post</a></h1>
+    <h1>{{ $forum->name }} <a class="btn btn-sm btn-primary pull-right" href="{{ route('laravel-forum.write.post', ['id' => $forum->id]) }}">New Post</a></h1>
 
     <?php
         $posts = $forum->posts;
