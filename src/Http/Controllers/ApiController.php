@@ -1,6 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use \Auth;
+use \Event;
 use \Request;
 use \Response;
 use \Schema;
