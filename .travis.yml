@@ -9,4 +9,4 @@ install:
   - composer dumpautoload
 
 script:
- - phpcs
+ - ./vendor/bin/phpcs
