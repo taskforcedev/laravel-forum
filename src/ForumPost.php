@@ -32,6 +32,27 @@ class ForumPost extends AbstractModel
     }
 
     /**
+     * Is model data valid.
+     * @param array|object $data The data to validate.
+     * @return boolean
+     */
+    public static function valid($data)
+    {
+        $rules = [
+            'title' => 'required|min:3|max:100',
+            'body' => 'required|min:5',
+            'forum_id' => 'required|exists:forums,id',
+            'author_id' => 'required|min:1|exists:users,id',
+        ];
+        $validator = Validator::make($data, $rules);
+
+        if ($validator->passes()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Gets the last reply for the current forum post.
      * @return array
      */
