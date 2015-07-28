@@ -23,6 +23,12 @@ class ForumController extends BaseController
         }
     }
 
+    public function createPost()
+    {
+        $data = $this->buildData();
+        return view('forum/createPost', $data);
+    }
+
     private function buildData()
     {
         return [
