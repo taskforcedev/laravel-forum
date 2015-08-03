@@ -32,7 +32,7 @@ class ForumPost extends AbstractModel
 
     public function replies()
     {
-        $local = 'post_id'; $foreign = 'id';
+        $local = 'id'; $foreign = 'post_id';
         return $this->hasMany('Taskforcedev\LaravelForum\ForumReply', $foreign, $local);
     }
 
