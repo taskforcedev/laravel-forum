@@ -1,5 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum;
 
+use \Validator;
+
 /**
  * Class ForumPost
  *
