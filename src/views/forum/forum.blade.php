@@ -23,11 +23,19 @@
                 $replies = $post->replies;
                 $replyCount = count($post->replies);
                 $lastReply = $post->lastReply();
+                if (isset($lastReply)) {
+                    $replyAuthor = $lastReply['author'];
+                    $replyDate = $lastReply['date'];
+                }
             ?>
             <tr>
                 <td><a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>
                 <td>{{ $replyCount }}</td>
-                <td>by {{ $lastReply['author'] }}<br/>at {{ $lastReply['date'] }}</td>
+                @if (isset($lastReply))
+                    <td>by {{ $replyAuthor }}<br/>at {{ $replyDate }}</td>
+                @else
+                    <td>No replies</td>
+                @endif
             </tr>
         @endforeach
             </tbody>
