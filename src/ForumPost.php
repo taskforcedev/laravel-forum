@@ -26,12 +26,12 @@ class ForumPost extends AbstractModel
 
     public function forum()
     {
-        return $this->belongsTo('Forum');
+        return $this->belongsTo('Taskforcedev\LaravelForum\Forum');
     }
 
     public function replies()
     {
-        return $this->hasMany('ForumReply');
+        return $this->hasMany('Taskforcedev\LaravelForum\ForumReply');
     }
 
     /**
