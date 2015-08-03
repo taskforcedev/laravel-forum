@@ -43,7 +43,7 @@ class ForumController extends BaseController
         return view('laravel-forum::forum.createPost', $data);
     }
 
-    public function viewPost($post_id)
+    public function viewPost($forum_id, $post_id)
     {
         try {
             $post = ForumPost::with('replies')->where('id', $post_id)->firstOrFail();
