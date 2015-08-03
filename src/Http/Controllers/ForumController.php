@@ -45,7 +45,7 @@ class ForumController extends BaseController
     public function viewPost($post_id)
     {
         try {
-            $post = ForumPost::where('id', $post_id)->firstOrFail();
+            $post = ForumPost::with('replies')->where('id', $post_id)->firstOrFail();
 
             $data = $this->buildData();
             $data['post'] = $post;
