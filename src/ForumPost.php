@@ -65,6 +65,11 @@ class ForumPost extends AbstractModel
     {
         try {
             $replies = ForumReply::where('post_id', $this->id)->get();
+            
+            if($replies->isEmpty()) {
+                return null;
+            }
+
             $reply = $replies->last();
 
             return [
