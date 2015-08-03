@@ -26,13 +26,15 @@ class ForumPost extends AbstractModel
 
     public function forum()
     {
-        $local = 'forum_id'; $foreign = 'id';
+        $local = 'forum_id';
+        $foreign = 'id';
         return $this->belongsTo('Taskforcedev\LaravelForum\Forum', $foreign, $local);
     }
 
     public function replies()
     {
-        $local = 'id'; $foreign = 'post_id';
+        $local = 'id';
+        $foreign = 'post_id';
         return $this->hasMany('Taskforcedev\LaravelForum\ForumReply', $foreign, $local);
     }
 
@@ -65,8 +67,8 @@ class ForumPost extends AbstractModel
     {
         try {
             $replies = ForumReply::where('post_id', $this->id)->get();
-            
-            if($replies->isEmpty()) {
+
+            if ($replies->isEmpty()) {
                 return null;
             }
 
