@@ -151,8 +151,7 @@ class BaseController extends Controller
             'layout' => $this->getLayout(),
             'categories' => ForumCategory::with('forums')->get(),
             'sitename' => config('laravel-forum.sitename'),
-            'wysiwyg.include' => config('laravel-forum.wysiwyg.include'),
-            'wysiwyg.name' => config('laravel-forum.wysiwyg.name'),
+            'wysiwyg' => config('laravel-forum.wysiwyg')
         ];
     }
 }
