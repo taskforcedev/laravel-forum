@@ -19,7 +19,7 @@ class ForumController extends BaseController
         $forum = $this->validateForumId($id);
 
         if ($forum === false) {
-            return view('404');
+            return view('laravel-forum::errors.404');
         }
 
         $data = $this->buildData();
@@ -33,13 +33,22 @@ class ForumController extends BaseController
         $forum = $this->validateForumId($forum_id);
 
         if ($forum === false) {
-            return view('404');
+            return view('laravel-forum::errors.404');
         }
 
         $data = $this->buildData();
         $data['forum'] = $forum;
 
         return view('laravel-forum::forum.createPost', $data);
+    }
+
+    public function viewPost($post_id)
+    {
+        try {
+            $post = ForumPost::where('id', $post_id)->firstOrFail();
+        } catch (Exception $e) {
+            return view('laravel-forum::errors.404');
+        }
     }
 
     /**
