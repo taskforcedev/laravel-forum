@@ -46,6 +46,11 @@ class ForumController extends BaseController
     {
         try {
             $post = ForumPost::where('id', $post_id)->firstOrFail();
+
+            $data = $this->buildData();
+            $data['post'] = $post;
+
+            return view('laravel-forum::forum.thread', $data);
         } catch (Exception $e) {
             return view('laravel-forum::errors.404');
         }
