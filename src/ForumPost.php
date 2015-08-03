@@ -1,5 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum;
 
+use \Exception;
 use \Validator;
 
 /**
@@ -68,7 +69,7 @@ class ForumPost extends AbstractModel
                 'author' => $reply->author->username,
                 'date' => $reply->created_at
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return null;
         }
     }
