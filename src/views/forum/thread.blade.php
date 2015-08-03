@@ -3,7 +3,7 @@
 @section('content')
     <h1>{{ $post->title }}</h1>
 
-    {{ $post->body }}
+    {!! nl2br(e($post->body)) !!}
 
     @include('laravel-forum::forum/_addReply')
 @stop
