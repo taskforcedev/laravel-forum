@@ -19,11 +19,15 @@
             </thead>
             <tbody>
         @foreach($posts as $post)
-            <?php $replies = $post->replies; $replyCount = count($post->replies); ?>
+            <?php
+                $replies = $post->replies;
+                $replyCount = count($post->replies);
+                $lastReply = $post->lastReply();
+            ?>
             <tr>
                 <td><a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>
                 <td>{{ $replyCount }}</td>
-                <td>by {{ $post->lastReply['author'] }}<br/>at {{ $post->lastReply['date'] }}</td>
+                <td>by {{ $lastReply['author'] }}<br/>at {{ $lastReply['date'] }}</td>
             </tr>
         @endforeach
             </tbody>
