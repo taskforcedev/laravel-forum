@@ -10,4 +10,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class AbstractModel extends Model
 {
+    use \Illuminate\Console\AppNamespaceDetectorTrait;
+
+    public function getNamespace()
+    {
+        return $this->getAppNamespace();
+    }
 }
