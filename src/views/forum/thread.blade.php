@@ -1,17 +1,27 @@
 @extends($layout)
 
-@section('content')
+@section('breadcrumbs')
+<?php
+    $forum = $post->forum;
+?>
+    <ul>
+        <li><a href="{{ route('laravel-forum.index') }}">Forums</a></li>
+        <li><a href="{{ route('laravel-forum.view', $forum->id) }}">{{ $forum->name }}</a></li>
+        <li class="active">{{ $post->title }}</li>
+    </ul>
+@stop
 
+@section('content')
     <div class="row forum-post">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h1>{{ $post->title }}</h1>
+        <div class="forum-heading">
+            <h2>{{ $post->title }}</h2>
             By {{ $post->author->name }} @ {{ $post->created_at }}
         </div>
+
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
-            {{ $post->author->name }}
+            Author: {{ $post->author->name }}
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-
             {!! nl2br(e($post->body)) !!}
         </div>
     </div>
