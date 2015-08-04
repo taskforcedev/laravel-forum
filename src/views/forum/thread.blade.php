@@ -3,11 +3,15 @@
 @section('content')
 
     <div class="row forum-post">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>{{ $post->title }}</h1>
+            By {{ $post->author->name }} @ {{ $post->created_at }}
+        </div>
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
             {{ $post->author->name }}
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            <h1>{{ $post->title }}</h1>
+
             {!! nl2br(e($post->body)) !!}
         </div>
     </div>
