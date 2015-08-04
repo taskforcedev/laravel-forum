@@ -22,7 +22,7 @@ class ForumPost extends AbstractModel
     public function author()
     {
         $appNS = $this->getNamespace();
-        return $this->belongsTo($appNS . '\User');
+        return $this->belongsTo($appNS . 'User');
     }
 
     public function forum()
