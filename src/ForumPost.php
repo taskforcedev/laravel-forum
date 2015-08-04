@@ -27,9 +27,7 @@ class ForumPost extends AbstractModel
 
     public function forum()
     {
-        $local = 'forum_id';
-        $foreign = 'id';
-        return $this->belongsTo('Taskforcedev\LaravelForum\Forum', $foreign, $local);
+        return $this->belongsTo('Taskforcedev\LaravelForum\Forum');
     }
 
     public function replies()
