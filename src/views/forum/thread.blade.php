@@ -4,11 +4,11 @@
 <?php
     $forum = $post->forum;
 ?>
-    <ul>
+    <ol class="breadcrumb">
         <li><a href="{{ route('laravel-forum.index') }}">Forums</a></li>
         <li><a href="{{ route('laravel-forum.view', $forum->id) }}">{{ $forum->name }}</a></li>
         <li class="active">{{ $post->title }}</li>
-    </ul>
+    </ol>
 @stop
 
 @section('content')
