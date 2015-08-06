@@ -9,6 +9,7 @@ use Taskforcedev\LaravelForum\Forum;
 use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\ForumPost;
 use Taskforcedev\LaravelForum\ForumReply;
+use Taskforcedev\LaravelForum\Events\PostCreated;
 
 /**
  * Class ApiController
@@ -76,13 +77,7 @@ class ApiController extends BaseController
 
         $post = ForumPost::create($data);
 
-        /* Fire post creation event */
-        $eData = [
-            'author_name' => User::getUsersUsername($data['author_id']),
-            'post_title' => $data['title'],
-        ];
-        Event::fire('forum.post.created', $eData);
-
+        event(new PostCreated($post, $user));
         return Redirect::route('forum.post.view', $post->id);
     }
 
