@@ -10,6 +10,7 @@ use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\ForumPost;
 use Taskforcedev\LaravelForum\ForumReply;
 use Taskforcedev\LaravelForum\Events\PostCreated;
+use Taskforcedev\LaravelForum\Events\PostReply;
 
 /**
  * Class ApiController
@@ -99,8 +100,9 @@ class ApiController extends BaseController
             return Redirect::route('forum.post.view', $data['post_id']);
         }
 
-        ForumReply::create($data);
+        $reply = ForumReply::create($data);
 
+        event(new PostReply($reply, $user));
         return Redirect::route('forum.post.view', $data['post_id']);
     }
 
