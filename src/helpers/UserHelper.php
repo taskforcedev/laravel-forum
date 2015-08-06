@@ -9,7 +9,7 @@ class UserHelper
     public function getUserModel()
     {
         /* Get the namespace */
-        $ns = $this->getNamespace();
+        $ns = $this->getAppNamespace();
 
         if ($ns) {
             /* Try laravel default convention (models in the app folder). */
