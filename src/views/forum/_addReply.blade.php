@@ -11,6 +11,7 @@
     }
 ?>
 @if (\Auth::check())
+    <form method="POST" action="{{ route('laravel-forum.api.store.forum.reply') }}">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h2>Reply</h2>
 
@@ -25,5 +26,8 @@
                 <?=$init;?>
             </script>
         @endif
+        
+        <input type="submit" value="Reply" />
     </div>
+    </form>
 @endif
