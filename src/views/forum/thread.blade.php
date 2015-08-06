@@ -33,9 +33,13 @@
                 "delete_url": "",
             }
 
+            var postdata = {
+                "_token": "{{ csrf_token() }}"
+            }
+
             function stickyPost()
             {
-                $.post( data.sticky_url, function() {})
+                $.post( data.sticky_url, postdata)
                 .done(function() {
                     window.location.reload();
                 });
@@ -43,7 +47,7 @@
 
             function unstickyPost()
             {
-                $.post( data.unsticky_url, function() {})
+                $.post( data.unsticky_url, postdata)
                 .done(function() {
                     window.location.reload();
                 });
@@ -51,7 +55,7 @@
 
             function lockPost()
             {
-                $.post( data.lock_url, function() {})
+                $.post( data.lock_url, postdata)
                 .done(function() {
                     window.location.reload();
                 });
@@ -59,7 +63,7 @@
 
             function unlockPost()
             {
-                $.post( data.unlock_url, function() {})
+                $.post( data.unlock_url, postdata)
                 .done(function() {
                     window.location.reload();
                 });
@@ -70,7 +74,7 @@
                 $confirm = confirm('Are you sure you wish to delete this thread? This cannot be undone.');
 
                 if ($confirm) {
-                    $.post( data.delete_url, function() {})
+                    $.post( data.delete_url, postdata)
                     .done(function() {
                         window.location.reload();
                     });
