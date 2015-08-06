@@ -20,6 +20,10 @@ class ForumPost extends AbstractModel
 
     public $fillable = ['title', 'body', 'forum_id', 'author_id'];
 
+    /**
+     * Eloquent Relation.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function author()
     {
         $userHelper = new UserHelper();
@@ -27,11 +31,19 @@ class ForumPost extends AbstractModel
         return $this->belongsTo($model);
     }
 
+    /**
+     * Eloquent Relation.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function forum()
     {
         return $this->belongsTo('Taskforcedev\LaravelForum\Forum');
     }
 
+    /**
+     * Eloquent Relation.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function replies()
     {
         $local = 'id';
@@ -41,7 +53,9 @@ class ForumPost extends AbstractModel
 
     /**
      * Is model data valid.
+     *
      * @param array|object $data The data to validate.
+     *
      * @return boolean
      */
     public static function valid($data)
@@ -62,6 +76,7 @@ class ForumPost extends AbstractModel
 
     /**
      * Gets the last reply for the current forum post.
+     *
      * @return array
      */
     public function lastReply()

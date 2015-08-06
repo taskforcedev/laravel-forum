@@ -5,8 +5,8 @@ use \Validator;
 /**
  * Class ForumCategory
  *
- * @property integer $id
- * @property string  $name
+ * @property integer $id   Category ID.
+ * @property string  $name Category Name.
  *
  * @package Taskforcedev\LaravelForum
  */
@@ -17,7 +17,7 @@ class ForumCategory extends AbstractModel
     public $fillable = ['name'];
 
     /**
-     * Eloquent Relation
+     * Eloquent Relation.
      * @return mixed
      */
     public function forums()

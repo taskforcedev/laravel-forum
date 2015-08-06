@@ -6,9 +6,9 @@ use \Validator;
 /**
  * Class ForumReply
  *
- * @property string  $body
- * @property integer $post_id
- * @property integer $author_id
+ * @property string  $body      Post body.
+ * @property integer $post_id   Post ID.
+ * @property integer $author_id Author ID.
  *
  * @package Taskforcedev\LaravelForum
  */
@@ -20,7 +20,7 @@ class ForumReply extends AbstractModel
     protected $fillable = ['body', 'post_id', 'author_id'];
 
     /**
-     * Eloquent Relation
+     * Eloquent Relation.
      * @return mixed
      */
     public function author()
@@ -31,7 +31,7 @@ class ForumReply extends AbstractModel
     }
 
     /**
-     * Validates model data
+     * Validates model data.
      * @param array $data The data to validate.
      *
      * @return boolean

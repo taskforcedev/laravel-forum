@@ -6,10 +6,10 @@ use \Validator;
 /**
  * Class Forum
  *
- * @property string  $name
- * @property string  $description
- * @property integer $category_id
- * @property integer $public
+ * @property string  $name        Forum Name.
+ * @property string  $description Forum Description.
+ * @property integer $category_id Category ID.
+ * @property integer $public      Whether the forum is publicly viewable.
  *
  * @package Taskforcedev\LaravelForum
  */
@@ -20,7 +20,7 @@ class Forum extends AbstractModel
     public $fillable = ['name', 'description', 'category_id', 'public'];
 
     /**
-     * Eloquent Relation
+     * Eloquent Relation.
      * @return mixed
      */
     public function category()
@@ -28,6 +28,10 @@ class Forum extends AbstractModel
         return $this->belongsTo('Taskforcedev\LaravelForum\ForumCategory');
     }
 
+    /**
+     * Eloquent Relation.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function posts()
     {
         return $this->hasMany('Taskforcedev\LaravelForum\ForumPost');
@@ -49,7 +53,9 @@ class Forum extends AbstractModel
 
     /**
      * Is model data valid.
+     *
      * @param array|object $data The data to validate.
+     *
      * @return boolean
      */
     public static function valid($data)
