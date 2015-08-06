@@ -4,6 +4,7 @@ use \Auth;
 use Illuminate\Routing\Controller;
 use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\Helpers\UserHelper;
+use Taskforcedev\LaravelForum\Database\Migrator;
 
 /**
  * Class BaseController
@@ -11,6 +12,18 @@ use Taskforcedev\LaravelForum\Helpers\UserHelper;
  */
 class BaseController extends Controller
 {
+    public function __construct()
+    {
+        $migrator = new Migrator();
+        $migrator->migrate();
+
+        if (!Schema::hasTable('forums')) {
+            return 'Laravel Forums: Error: Unable to migrate tables.';
+        }
+
+        return false;
+    }
+
     /**
      * Returns the user object (or guest).
      * @return object
