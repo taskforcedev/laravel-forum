@@ -23,7 +23,7 @@
 @stop
 
 @section('content')
-    <div class="panel panel-primary">
+    <div class="panel panel-primary forum-post">
         <div class="panel-heading">
             <h2>{{ $title }} @include('laravel-forum::forum.thread._actions')  </h2>
             By {{ $post->author->name }} @ {{ $post->created_at }}
@@ -51,7 +51,7 @@
 
         @foreach ($replies as $reply)
 
-            <div class="panel panel-info">
+            <div class="panel panel-info forum-reply">
                 <div class="panelbody">
                     <div class="row forum-reply">
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
