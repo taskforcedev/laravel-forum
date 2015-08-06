@@ -4,7 +4,7 @@ A drop-in forum module for Laravel 5.
 [![Build Status](https://travis-ci.org/taskforcedev/laravel-forum.svg?branch=master)](https://travis-ci.org/taskforcedev/laravel-forum) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/taskforcedev/laravel-forum/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/taskforcedev/laravel-forum/?branch=master)
 
 ## Requirements
-This package requires jQuery and Bootstrap JS to be included in the head of your layout (or you can use the default layout provided) - you can publish this layout if you wish add your own css/code on top of the default. 
+This package requires jQuery and Bootstrap JS to be included in the head of your layout (or you can use the default layout provided) - you can publish this layout if you wish add your own css/code on top of the default.
 
 ## Installation
 
@@ -32,6 +32,9 @@ This package requires jQuery and Bootstrap JS to be included in the head of your
 edit config/laravel-forum to include your apps view layout (unless you really wish to use the packages default).
 
 ## Usage
+Once you have done the installation steps above in order to setup the forums for public use you must first create at least one category and a forum, you do this by going to yoursite.com/admin/forums (this will also create the required tables).  Once you have done this you can add the link to /forum into your sites navigation as you please.
+
+## Administration / Moderation
 In order to provide administrators access to add/edit/manage the forums we use a "can" method on the user model which is our convention.
 
 To provide basic addition functionality the following must return true.
@@ -45,4 +48,4 @@ We will later add additional options to provide more comprehensive permissions.
 ## Feedback / Outstanding
 We use Producteev for project management, eg: feature requests, bug reports, etc. If you would like to see what is currently planned or being worked on you can view our board on [Producteev](https://www.producteev.com/workspace/p/55803343b1fa09c213000002).
 
-We also check github issues frequently so you can alternatively raise issues here. 
+We also check github issues frequently so you can alternatively raise issues here.
