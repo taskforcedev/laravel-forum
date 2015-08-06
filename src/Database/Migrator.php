@@ -1,5 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum\Database;
 
+use \Schema;
+
 class Migrator
 {
     public function migrate()
