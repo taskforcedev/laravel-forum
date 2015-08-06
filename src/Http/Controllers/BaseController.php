@@ -1,6 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use \Auth;
+use \Schema;
 use Illuminate\Routing\Controller;
 use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\Helpers\UserHelper;
