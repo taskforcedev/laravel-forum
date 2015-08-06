@@ -21,7 +21,11 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Sticky</a></li>
+                    @if ($post->sticky === 1 || $post->sticky == true)
+                        <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Un-sticky</a></li>
+                    @else
+                        <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Sticky</a></li>
+                    @endif
                     <li role="separator" class="divider"></li>
                     <li><a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
                     <li role="separator" class="divider"></li>
