@@ -72,14 +72,10 @@ class AdminController extends BaseController
 
     public function installation()
     {
-        if (!Schema::hasTable('forums')) {
-            $this->migrate();
+        $this->migrate();
 
-            if (!Schema::hasTable('forums')) {
-                return 'Laravel Forums: Error: Unable to migrate tables.';
-            } else {
-                return false;
-            }
+        if (!Schema::hasTable('forums')) {
+            return 'Laravel Forums: Error: Unable to migrate tables.';
         }
 
         return false;
@@ -94,6 +90,7 @@ class AdminController extends BaseController
         $this->migrateForums();
         $this->migratePosts();
         $this->migrateReplies();
+        $this->addFieldsToForumPosts();
     }
 
     public function migrateCategories()
@@ -153,6 +150,16 @@ class AdminController extends BaseController
                     ->onDelete('cascade');
                 $table->integer('author_id');
                 $table->timestamps();
+            });
+        }
+    }
+
+    public function addFieldsToForumPosts()
+    {
+        if (!Schema::hasColumn('forum_posts', 'sticky') && !Schema::hasColumn('forum_posts', 'locked') ) {
+            Schema::table('forum_posts', function ($table) {
+                $table->boolean('sticky');
+                $table->boolean('locked');
             });
         }
     }
