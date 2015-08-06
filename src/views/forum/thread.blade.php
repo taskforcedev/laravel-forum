@@ -3,6 +3,8 @@
 @section('breadcrumbs')
 <?php
     $forum = $post->forum;
+    $sticky = ($post->sticky === 1 || $post->sticky === true);
+    $title = ($sticky ? 'Sticky: ' . $post->title : $post->title);
 ?>
     <ol class="breadcrumb">
         <li><a href="{{ route('laravel-forum.index') }}">Forums</a></li>
@@ -21,7 +23,7 @@
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    @if ($post->sticky === 1 || $post->sticky == true)
+                    @if ($sticky)
                         <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Un-sticky</a></li>
                     @else
                         <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Sticky</a></li>
@@ -37,7 +39,7 @@
 
     <div class="row forum-post">
         <div class="forum-heading">
-            <h2>{{ $post->title }}</h2>
+            <h2>{{ $title }}</h2>
             By {{ $post->author->name }} @ {{ $post->created_at }}
         </div>
 
