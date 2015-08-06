@@ -2,17 +2,18 @@
 
 use Illuminate\Queue\SerializesModels;
 use Taskforcedev\LaravelForum\ForumPost;
+use Taskforcedev\LaravelForum\ForumReply;
 
-class PostCreated extends Event
+class PostReply extends Event
 {
     use SerializesModels;
 
     public $user;
-    public $post;
+    public $reply;
 
-    public function __construct(ForumPost $post, $user)
+    public function __construct(ForumReply $reply, $user)
     {
-        $this->post = $post;
+        $this->reply = reply;
         $this->user = $user;
     }
 
