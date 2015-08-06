@@ -12,6 +12,13 @@
 @stop
 
 @section('content')
+    @if (method_exists($user, 'can') && ($user->can('administrate-forum') || $user->can('moderate-forum')))
+        <span class="pull-right">
+            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-warning">Lock</button>
+        </span>
+    @endif
+
     <div class="row forum-post">
         <div class="forum-heading">
             <h2>{{ $post->title }}</h2>

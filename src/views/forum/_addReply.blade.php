@@ -26,7 +26,7 @@
                 <?=$init;?>
             </script>
         @endif
-        
+
         <input type="submit" value="Reply" />
     </div>
     </form>
