@@ -114,10 +114,10 @@
         </div>
         <div class="panel-body">
             <div class="row forum-post">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg2" style="border-right: 1px solid #333">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
                     Author: {{ $post->author->name }}
                 </div>
-                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="border-left: 1px solid #333">
                     {!! nl2br(e($post->body)) !!}
                 </div>
             </div>
