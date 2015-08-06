@@ -2,8 +2,8 @@
 
 use \Auth;
 use Illuminate\Routing\Controller;
-use Illuminate\Console\AppNamespaceDetectorTrait;
 use Taskforcedev\LaravelForum\ForumCategory;
+use Taskforcedev\LaravelForum\Helpers\UserHelper;
 
 /**
  * Class BaseController
@@ -19,11 +19,6 @@ class BaseController extends Controller
      */
     public function getUser()
     {
-        if (Auth::check()) {
-            return Auth::user();
-        } else {
-            // get guest (user model
-        }
         return (Auth::check() ? \Auth::user() : $this->guest());
     }
 
@@ -109,35 +104,8 @@ class BaseController extends Controller
      */
     public function getUserModel()
     {
-        /* Get the namespace */
-        $ns = $this->getNamespace();
-
-        if ($ns) {
-            $model = $ns . 'User';
-            if (class_exists($model)) {
-                return $model;
-            }
-
-            $model = $ns . 'Models/User';
-            if (class_exists($model)) {
-                return $model;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Attempt to retrieve the applications namespace.
-     * @return string|boolean
-     */
-    public function getNamespace()
-    {
-        try {
-            $ns = $this->getAppNamespace();
-            return $ns;
-        } catch (\Exception $e) {
-            return false;
-        }
+        $helper = new UserHelper();
+        return $helper->getUserModel();
     }
 
     /**
