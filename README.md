@@ -45,6 +45,12 @@ To grant users full moderation permissions we will implement checks based on the
 
 We will later add additional options to provide more comprehensive permissions.
 
+## Events
+
+The following events are fired within the package and can be listened for in your main application.
+
+ - Taskforcedev\LaravelForum\Events\PostCreated
+
 ## Feedback / Outstanding
 We use Producteev for project management, eg: feature requests, bug reports, etc. If you would like to see what is currently planned or being worked on you can view our board on [Producteev](https://www.producteev.com/workspace/p/55803343b1fa09c213000002).
 
