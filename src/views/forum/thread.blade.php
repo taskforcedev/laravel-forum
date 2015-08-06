@@ -23,65 +23,70 @@
 @stop
 
 @section('content')
-    @if (method_exists($user, 'can') && ($user->can('forum-administrate') || $user->can('forum-moderate')))
-        <script type="application/javascript">
-            var data = {
-                "sticky_url": "{{ route('laravel-forum.api.post.sticky', $post->id) }}",
-                "unsticky_url": "{{ route('laravel-forum.api.post.unsticky', $post->id) }}",
-                "lock_url": "{{ route('laravel-forum.api.post.lock', $post->id) }}",
-                "unlock_url": "{{ route('laravel-forum.api.post.unlock', $post->id) }}",
-                "delete_url": "",
-            }
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2>{{ $title }}</h2>
+            By {{ $post->author->name }} @ {{ $post->created_at }}
 
-            var postdata = {
-                "_token": "{{ csrf_token() }}"
-            }
+            @if (method_exists($user, 'can') && ($user->can('forum-administrate') || $user->can('forum-moderate')))
+                <script type="application/javascript">
+                    var data = {
+                        "sticky_url": "{{ route('laravel-forum.api.post.sticky', $post->id) }}",
+                        "unsticky_url": "{{ route('laravel-forum.api.post.unsticky', $post->id) }}",
+                        "lock_url": "{{ route('laravel-forum.api.post.lock', $post->id) }}",
+                        "unlock_url": "{{ route('laravel-forum.api.post.unlock', $post->id) }}",
+                        "delete_url": "",
+                    }
 
-            function stickyPost()
-            {
-                $.post( data.sticky_url, postdata)
-                .done(function() {
-                    window.location.reload();
-                });
-            }
+                    var postdata = {
+                        "_token": "{{ csrf_token() }}"
+                    }
 
-            function unstickyPost()
-            {
-                $.post( data.unsticky_url, postdata)
-                .done(function() {
-                    window.location.reload();
-                });
-            }
+                    function stickyPost()
+                    {
+                        $.post( data.sticky_url, postdata)
+                                .done(function() {
+                                    window.location.reload();
+                                });
+                    }
 
-            function lockPost()
-            {
-                $.post( data.lock_url, postdata)
-                .done(function() {
-                    window.location.reload();
-                });
-            }
+                    function unstickyPost()
+                    {
+                        $.post( data.unsticky_url, postdata)
+                                .done(function() {
+                                    window.location.reload();
+                                });
+                    }
 
-            function unlockPost()
-            {
-                $.post( data.unlock_url, postdata)
-                .done(function() {
-                    window.location.reload();
-                });
-            }
+                    function lockPost()
+                    {
+                        $.post( data.lock_url, postdata)
+                                .done(function() {
+                                    window.location.reload();
+                                });
+                    }
 
-            function deletePost()
-            {
-                $confirm = confirm('Are you sure you wish to delete this thread? This cannot be undone.');
+                    function unlockPost()
+                    {
+                        $.post( data.unlock_url, postdata)
+                                .done(function() {
+                                    window.location.reload();
+                                });
+                    }
 
-                if ($confirm) {
-                    $.post( data.delete_url, postdata)
-                    .done(function() {
-                        window.location.reload();
-                    });
-                }
-            }
-        </script>
-        <span class="pull-right">
+                    function deletePost()
+                    {
+                        $confirm = confirm('Are you sure you wish to delete this thread? This cannot be undone.');
+
+                        if ($confirm) {
+                            $.post( data.delete_url, postdata)
+                                    .done(function() {
+                                        window.location.reload();
+                                    });
+                        }
+                    }
+                </script>
+                <span class="pull-right">
             <div class="btn-group">
                 <button type="button" class="btn btn-danger">Actions</button>
                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -105,12 +110,7 @@
                 </ul>
             </div>
         </span>
-    @endif
-
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h2>{{ $title }}</h2>
-            By {{ $post->author->name }} @ {{ $post->created_at }}
+            @endif
         </div>
         <div class="panel-body">
             <div class="row forum-post">
