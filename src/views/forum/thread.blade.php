@@ -3,8 +3,8 @@
 @section('breadcrumbs')
 <?php
     $forum = $post->forum;
-    $sticky = ($post->sticky === 1 || $post->sticky === true);
-    $locked = ($post->locked === 1 || $post->locked === true);
+    $sticky = (bool)$post->sticky;
+    $locked = (bool)$post->locked;
     if ($locked) {
         $title = 'Locked: ' . $post->title;
     } else {
@@ -45,33 +45,33 @@
                     function stickyPost()
                     {
                         $.post( data.sticky_url, postdata)
-                                .done(function() {
-                                    window.location.reload();
-                                });
+                        .done(function() {
+                            window.location.reload();
+                        });
                     }
 
                     function unstickyPost()
                     {
                         $.post( data.unsticky_url, postdata)
-                                .done(function() {
-                                    window.location.reload();
-                                });
+                        .done(function() {
+                            window.location.reload();
+                        });
                     }
 
                     function lockPost()
                     {
                         $.post( data.lock_url, postdata)
-                                .done(function() {
-                                    window.location.reload();
-                                });
+                        .done(function() {
+                            window.location.reload();
+                        });
                     }
 
                     function unlockPost()
                     {
                         $.post( data.unlock_url, postdata)
-                                .done(function() {
-                                    window.location.reload();
-                                });
+                        .done(function() {
+                            window.location.reload();
+                        });
                     }
 
                     function deletePost()
@@ -80,9 +80,9 @@
 
                         if ($confirm) {
                             $.post( data.delete_url, postdata)
-                                    .done(function() {
-                                        window.location.reload();
-                                    });
+                            .done(function() {
+                                window.location.reload();
+                            });
                         }
                     }
                 </script>
@@ -95,13 +95,13 @@
                 </button>
                 <ul class="dropdown-menu">
                     @if ($sticky)
-                        <li><a onclick="return unstickyPost();"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Un-sticky</a></li>
+                        <li><a onclick="return unstickyPost();"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Unsticky</a></li>
                     @else
                         <li><a onclick="return stickyPost();"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Sticky</a></li>
                     @endif
                     <li role="separator" class="divider"></li>
                     @if ($locked)
-                        <li><a onclick="return unlockPost();"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
+                        <li><a onclick="return unlockPost();"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Unlock</a></li>
                     @else
                         <li><a onclick="return lockPost();"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
                     @endif
