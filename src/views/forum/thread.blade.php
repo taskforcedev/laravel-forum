@@ -113,7 +113,7 @@
             By {{ $post->author->name }} @ {{ $post->created_at }}
         </div>
 
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg2" style="border-right: 1px solid #333">
             Author: {{ $post->author->name }}
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
