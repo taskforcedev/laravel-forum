@@ -68,5 +68,7 @@
 
     @endif
 
-    @include('laravel-forum::forum/_addReply')
+    @if (!$locked)
+        @include('laravel-forum::forum/_addReply')
+    @endif
 @stop
