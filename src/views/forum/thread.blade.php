@@ -4,7 +4,16 @@
 <?php
     $forum = $post->forum;
     $sticky = ($post->sticky === 1 || $post->sticky === true);
-    $title = ($sticky ? 'Sticky: ' . $post->title : $post->title);
+    $locked = ($post->locked === 1 || $post->locked === true);
+    if ($locked) {
+        $title = 'Locked: ' . $post->title;
+    } else {
+        if ($sticky) {
+            $title = 'Sticky: ' . $post->title;
+        } else {
+            $title = $post->title;
+        }
+    }
 ?>
     <ol class="breadcrumb">
         <li><a href="{{ route('laravel-forum.index') }}">Forums</a></li>
