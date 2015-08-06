@@ -14,8 +14,20 @@
 @section('content')
     @if (method_exists($user, 'can') && ($user->can('administrate-forum') || $user->can('moderate-forum')))
         <span class="pull-right">
-            <button class="btn btn-danger">Delete</button>
-            <button class="btn btn-warning">Lock</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger">Actions</button>
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Sticky</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete</a></li>
+                </ul>
+            </div>
         </span>
     @endif
 
