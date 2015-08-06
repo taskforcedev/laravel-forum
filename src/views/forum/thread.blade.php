@@ -23,7 +23,7 @@
 @stop
 
 @section('content')
-    <div class="panel panel-info">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h2>{{ $title }} @include('laravel-forum::forum.thread._actions')  </h2>
             By {{ $post->author->name }} @ {{ $post->created_at }}
