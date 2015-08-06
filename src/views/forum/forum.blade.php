@@ -20,6 +20,8 @@
             <tbody>
         @foreach($posts as $post)
             <?php
+                $locked = (bool)$post->locked;
+                $sticky = (bool)$post->sticky;
                 $replies = $post->replies;
                 $replyCount = count($post->replies);
                 $lastReply = $post->lastReply();
@@ -29,7 +31,13 @@
                 }
             ?>
             <tr>
-                <td><a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>
+                <td>
+                    @if ($locked)
+                        Locked:
+                    @elseif ($sticky)
+                        Sticky:
+                    @endif
+                    <a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>
                 <td>{{ $replyCount }}</td>
                 @if (isset($lastReply))
                     <td>by {{ $replyAuthor }}<br/>at {{ $replyDate }}</td>
