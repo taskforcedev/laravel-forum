@@ -20,5 +20,11 @@ Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers'], func
         Route::post('forum',          [ 'as' => 'laravel-forum.api.store.forum',          'uses' => 'ApiController@forumStore'         ]);
         Route::post('forum_post',     [ 'as' => 'laravel-forum.api.store.forum.post',     'uses' => 'ApiController@forumPostStore'     ]);
         Route::post('forum_reply',    [ 'as' => 'laravel-forum.api.store.forum.reply',    'uses' => 'ApiController@forumReplyStore'    ]);
+
+        Route::post('sticky_post', [ 'as' => 'laravel-forum.api.post.sticky', 'uses' => 'ApiController@stickyPost' ]);
+        Route::post('lock_post',   [ 'as' => 'laravel-forum.api.post.lock',   'uses' => 'ApiController@lockPost'   ]);
+
+        Route::post('unsticky_post', [ 'as' => 'laravel-forum.api.post.unsticky', 'uses' => 'ApiController@unstickyPost' ]);
+        Route::post('unlock_post',   [ 'as' => 'laravel-forum.api.post.unlock',   'uses' => 'ApiController@unlockPost'   ]);
     });
 });

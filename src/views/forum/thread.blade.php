@@ -23,7 +23,7 @@
 @stop
 
 @section('content')
-    @if (method_exists($user, 'can') && ($user->can('administrate-forum') || $user->can('moderate-forum')))
+    @if (method_exists($user, 'can') && ($user->can('forum-administrate') || $user->can('forum-moderate')))
         <span class="pull-right">
             <div class="btn-group">
                 <button type="button" class="btn btn-danger">Actions</button>

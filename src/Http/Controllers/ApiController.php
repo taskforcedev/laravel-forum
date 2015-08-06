@@ -125,4 +125,78 @@ class ApiController extends BaseController
         }
         return $data;
     }
+
+    public function lockPost()
+    {
+        if (!$this->canAdministrate() && !$this->canModerate()) {
+            return Response::make('Unauthorised', 401);
+        }
+
+        $post = $this->postExists(Request::input('post_id'));
+        if (!$post) {
+            return Response::make('Post not found', 404);
+        }
+
+        $post->locked = 1;
+        $post->save();
+        return Response::make('Post Locked', 200);
+    }
+
+    public function unlockPost()
+    {
+        if (!$this->canAdministrate() && !$this->canModerate()) {
+            return Response::make('Unauthorised', 401);
+        }
+
+        $post = $this->postExists(Request::input('post_id'));
+        if (!$post) {
+            return Response::make('Post not found', 404);
+        }
+
+        $post->locked = 0;
+        $post->save();
+        return Response::make('Post Unlocked', 200);
+    }
+
+    public function stickyPost()
+    {
+        if (!$this->canAdministrate() && !$this->canModerate()) {
+            return Response::make('Unauthorised', 401);
+        }
+
+        $post = $this->postExists(Request::input('post_id'));
+        if (!$post) {
+            return Response::make('Post not found', 404);
+        }
+
+        $post->sticky = 1;
+        $post->save();
+        return Response::make('Post Unlocked', 200);
+    }
+
+    public function unstickyPost()
+    {
+        if (!$this->canAdministrate() && !$this->canModerate()) {
+            return Response::make('Unauthorised', 401);
+        }
+
+        $post = $this->postExists(Request::input('post_id'));
+        if (!$post) {
+            return Response::make('Post not found', 404);
+        }
+
+        $post->sticky = 0;
+        $post->save();
+        return Response::make('Post Unlocked', 200);
+    }
+
+    private function postExists($post_id)
+    {
+        try {
+            $post = ForumPost::where('id', $post_id)->firstOrFail();
+            return $post;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }
