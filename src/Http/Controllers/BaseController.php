@@ -11,8 +11,6 @@ use Taskforcedev\LaravelForum\Helpers\UserHelper;
  */
 class BaseController extends Controller
 {
-    use AppNamespaceDetectorTrait;
-
     /**
      * Returns the user object (or guest).
      * @return object
