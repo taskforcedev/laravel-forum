@@ -4,6 +4,8 @@ use Illuminate\Console\AppNamespaceDetectorTrait;
 
 class UserHelper
 {
+    use AppNamespaceDetectorTrait;
+
     public function getUserModel()
     {
         /* Get the namespace */
