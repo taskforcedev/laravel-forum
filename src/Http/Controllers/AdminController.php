@@ -156,7 +156,7 @@ class AdminController extends BaseController
 
     public function addFieldsToForumPosts()
     {
-        if (!Schema::hasColumn('forum_posts', 'sticky') && !Schema::hasColumn('forum_posts', 'locked') ) {
+        if (!Schema::hasColumn('forum_posts', 'sticky') && !Schema::hasColumn('forum_posts', 'locked')) {
             Schema::table('forum_posts', function ($table) {
                 $table->boolean('sticky');
                 $table->boolean('locked');
