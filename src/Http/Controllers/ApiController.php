@@ -126,13 +126,13 @@ class ApiController extends BaseController
         return $data;
     }
 
-    public function lockPost()
+    public function lockPost($id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
             return Response::make('Unauthorised', 401);
         }
 
-        $post = $this->postExists(Request::input('post_id'));
+        $post = $this->postExists($id);
         if (!$post) {
             return Response::make('Post not found', 404);
         }
@@ -142,13 +142,13 @@ class ApiController extends BaseController
         return Response::make('Post Locked', 200);
     }
 
-    public function unlockPost()
+    public function unlockPost($id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
             return Response::make('Unauthorised', 401);
         }
 
-        $post = $this->postExists(Request::input('post_id'));
+        $post = $this->postExists($id);
         if (!$post) {
             return Response::make('Post not found', 404);
         }
@@ -158,13 +158,13 @@ class ApiController extends BaseController
         return Response::make('Post Unlocked', 200);
     }
 
-    public function stickyPost()
+    public function stickyPost($id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
             return Response::make('Unauthorised', 401);
         }
 
-        $post = $this->postExists(Request::input('post_id'));
+        $post = $this->postExists($id);
         if (!$post) {
             return Response::make('Post not found', 404);
         }
@@ -174,13 +174,13 @@ class ApiController extends BaseController
         return Response::make('Post Unlocked', 200);
     }
 
-    public function unstickyPost()
+    public function unstickyPost($id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
             return Response::make('Unauthorised', 401);
         }
 
-        $post = $this->postExists(Request::input('post_id'));
+        $post = $this->postExists($id);
         if (!$post) {
             return Response::make('Post not found', 404);
         }

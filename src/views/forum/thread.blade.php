@@ -24,6 +24,59 @@
 
 @section('content')
     @if (method_exists($user, 'can') && ($user->can('forum-administrate') || $user->can('forum-moderate')))
+        <script type="application/javascript">
+            var data = {
+                "sticky_url": "{{ route('laravel-forum.api.post.sticky', $post->id) }}",
+                "unsticky_url": "{{ route('laravel-forum.api.post.unsticky', $post->id) }}",
+                "lock_url": "{{ route('laravel-forum.api.post.lock', $post->id) }}",
+                "unlock_url": "{{ route('laravel-forum.api.post.unlock', $post->id) }}",
+                "delete_url": "",
+            }
+
+            function stickyPost()
+            {
+                $.post( data.sticky_url, function() {})
+                .done(function() {
+                    window.location.reload();
+                });
+            }
+
+            function unstickyPost()
+            {
+                $.post( data.unsticky_url, function() {})
+                .done(function() {
+                    window.location.reload();
+                });
+            }
+
+            function lockPost()
+            {
+                $.post( data.lock_url, function() {})
+                .done(function() {
+                    window.location.reload();
+                });
+            }
+
+            function unlockPost()
+            {
+                $.post( data.unlock_url, function() {})
+                .done(function() {
+                    window.location.reload();
+                });
+            }
+
+            function deletePost()
+            {
+                $confirm = confirm('Are you sure you wish to delete this thread? This cannot be undone.');
+
+                if ($confirm) {
+                    $.post( data.delete_url, function() {})
+                    .done(function() {
+                        window.location.reload();
+                    });
+                }
+            }
+        </script>
         <span class="pull-right">
             <div class="btn-group">
                 <button type="button" class="btn btn-danger">Actions</button>
@@ -33,14 +86,18 @@
                 </button>
                 <ul class="dropdown-menu">
                     @if ($sticky)
-                        <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Un-sticky</a></li>
+                        <li><a onclick="return unstickyPost();"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Un-sticky</a></li>
                     @else
-                        <li><a href="#"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Sticky</a></li>
+                        <li><a onclick="return stickyPost();"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Sticky</a></li>
                     @endif
                     <li role="separator" class="divider"></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
+                    @if ($locked)
+                        <li><a onclick="return unlockPost();"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
+                    @else
+                        <li><a onclick="return lockPost();"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
+                    @endif
                     <li role="separator" class="divider"></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</a></li>
+                    <li><a onclick="return deletePost();"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</a></li>
                 </ul>
             </div>
         </span>
