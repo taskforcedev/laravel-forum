@@ -11,6 +11,8 @@ use \Validator;
  * @property string  $body
  * @property integer $forum_id
  * @property integer $author_id
+ * @property integer $sticky
+ * @property integer $locked
  *
  * @package Taskforcedev\LaravelForum
  */
@@ -18,7 +20,7 @@ class ForumPost extends AbstractModel
 {
     public $table = 'forum_posts';
 
-    public $fillable = ['title', 'body', 'forum_id', 'author_id'];
+    public $fillable = ['title', 'body', 'forum_id', 'author_id', 'sticky', 'locked'];
 
     /**
      * Eloquent Relation.
@@ -65,6 +67,8 @@ class ForumPost extends AbstractModel
             'body' => 'required|min:5',
             'forum_id' => 'required|exists:forums,id',
             'author_id' => 'required|min:1|exists:users,id',
+            'sticky' => 'min:1|max:1',
+            'locked' => 'min:1|max:1',
         ];
         $validator = Validator::make($data, $rules);
 
