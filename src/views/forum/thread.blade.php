@@ -25,7 +25,7 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> Lock</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</a></li>
                 </ul>
             </div>
         </span>
