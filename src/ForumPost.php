@@ -1,6 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum;
 
 use \Exception;
+use Taskforcedev\LaravelForum\Helpers\UserHelper;
 use \Validator;
 
 /**
@@ -21,8 +22,9 @@ class ForumPost extends AbstractModel
 
     public function author()
     {
-        $appNS = $this->getNamespace();
-        return $this->belongsTo($appNS . 'User');
+        $userHelper = new UserHelper();
+        $model = $userHelper->getUserModel();
+        return $this->belongsTo($model);
     }
 
     public function forum()

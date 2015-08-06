@@ -25,8 +25,9 @@ class ForumReply extends AbstractModel
      */
     public function author()
     {
-        $appNS = $this->getNamespace();
-        return $this->belongsTo($appNS . 'User');
+        $userHelper = new UserHelper();
+        $model = $userHelper->getUserModel();
+        return $this->belongsTo($model);
     }
 
     /**
