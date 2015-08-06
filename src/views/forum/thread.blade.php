@@ -107,17 +107,20 @@
         </span>
     @endif
 
-    <div class="row forum-post">
-        <div class="forum-heading">
+    <div class="panel panel-info">
+        <div class="panel-heading">
             <h2>{{ $title }}</h2>
             By {{ $post->author->name }} @ {{ $post->created_at }}
         </div>
-
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg2" style="border-right: 1px solid #333">
-            Author: {{ $post->author->name }}
-        </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            {!! nl2br(e($post->body)) !!}
+        <div class="panel-body">
+            <div class="row forum-post">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg2" style="border-right: 1px solid #333">
+                    Author: {{ $post->author->name }}
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    {!! nl2br(e($post->body)) !!}
+                </div>
+            </div>
         </div>
     </div>
 
@@ -132,13 +135,16 @@
 
         @foreach ($replies as $reply)
 
-            <div class="row forum-reply">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
-                    {{ $reply->author->name }}
-                </div>
-                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                    <h1>{{ $reply->title }}</h1>
-                    {!! nl2br(e($reply->body)) !!}
+            <div class="panel panel-info">
+                <div class="panelbody">
+                    <div class="row forum-reply">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
+                            {{ $reply->author->name }}
+                        </div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                            {!! nl2br(e($reply->body)) !!}
+                        </div>
+                    </div>
                 </div>
             </div>
 
