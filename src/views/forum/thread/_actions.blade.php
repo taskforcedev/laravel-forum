@@ -1,4 +1,4 @@
-@if (method_exists($user, 'can') && ($user->can('forum-administrate') || $user->can('forum-moderate')))
+@if (isset($user) && method_exists($user, 'can') && ($user->can('forum-administrate') || $user->can('forum-moderate')))
     <script type="application/javascript">
         var data = {
             "sticky_url": "{{ route('laravel-forum.api.post.sticky', $post->id) }}",
@@ -80,4 +80,5 @@
                 </ul>
             </div>
         </span>
+@endif
 @endif
