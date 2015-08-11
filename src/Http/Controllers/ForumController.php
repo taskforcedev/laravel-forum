@@ -1,5 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
+use \Exception;
 use Taskforcedev\LaravelForum\Forum;
 use Taskforcedev\LaravelForum\ForumPost;
 
