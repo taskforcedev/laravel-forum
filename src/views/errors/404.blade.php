@@ -1,3 +1,14 @@
+<?php
+    if (!isset($layout)) {
+        $config = config('laravel-forum::layout');
+        if (isset($config)) {
+            $layout = $config;
+        } else {
+            $layout = 'laravel-forum::layout.master';
+        }
+    }
+?>
+
 @extends($layout)
 
 @section('content')
