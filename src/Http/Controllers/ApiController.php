@@ -65,12 +65,14 @@ class ApiController extends BaseController
         }
 
         $user = Auth::user();
+        
+        $forum_id = Request::input('forum_id');
 
         $data = [
             "author_id" => $user->id,
             "title" => Request::input('title'),
             "body" => $this->sanitizeData(Request::input('body')),
-            "forum_id" => Request::input('forum_id')
+            "forum_id" => $forum_id
         ];
 
         if (!ForumPost::valid($data)) {
@@ -80,7 +82,7 @@ class ApiController extends BaseController
         $post = ForumPost::create($data);
 
         event(new PostCreated($post, $user));
-        return Redirect::route('laravel-forum.view.post', $post->id);
+        return Redirect::route('laravel-forum.view.post', [$forum_id , $post->id]);
     }
 
     public function forumReplyStore()
