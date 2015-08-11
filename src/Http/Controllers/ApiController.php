@@ -2,6 +2,7 @@
 
 use \Auth;
 use \Event;
+use \Redirect;
 use \Request;
 use \Response;
 use \Schema;
