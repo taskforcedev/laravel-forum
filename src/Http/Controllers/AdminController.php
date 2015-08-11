@@ -18,7 +18,7 @@ class AdminController extends BaseController
     public function index()
     {
         if (!$this->canAdministrate()) {
-            return \Redirect::route('forum.index');
+            return \Redirect::route('laravel-forum.index');
         }
 
         $data = $this->buildData();
@@ -31,7 +31,7 @@ class AdminController extends BaseController
     public function forums()
     {
         if (!$this->canAdministrate()) {
-            return \Redirect::route('forum.index');
+            return \Redirect::route('laravel-forum.index');
         }
 
         $data = $this->buildData();
@@ -46,7 +46,7 @@ class AdminController extends BaseController
     public function categories()
     {
         if (!$this->canAdministrate()) {
-            return \Redirect::route('forum.index');
+            return \Redirect::route('laravel-forum.index');
         }
 
         $data = $this->buildData();
