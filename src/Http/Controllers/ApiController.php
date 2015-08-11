@@ -79,7 +79,7 @@ class ApiController extends BaseController
         $post = ForumPost::create($data);
 
         event(new PostCreated($post, $user));
-        return Redirect::route('forum.post.view', $post->id);
+        return Redirect::route('laravel-forum.view.post', $post->id);
     }
 
     public function forumReplyStore()
@@ -97,13 +97,13 @@ class ApiController extends BaseController
         ];
 
         if (!ForumReply::valid($data)) {
-            return Redirect::route('forum.post.view', $data['post_id']);
+            return Redirect::route('laravel-forum.view.post', $data['post_id']);
         }
 
         $reply = ForumReply::create($data);
 
         event(new PostReply($reply, $user));
-        return Redirect::route('forum.post.view', $data['post_id']);
+        return Redirect::route('laravel-forum.view.post', $data['post_id']);
     }
 
     private function adminCheck()
