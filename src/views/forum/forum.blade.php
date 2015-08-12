@@ -1,5 +1,12 @@
 @extends($layout)
 
+@section('breadcrumbs')
+    <ol class="breadcrumb">
+        <li><a href="{{ route('laravel-forum.index') }}">Forums</a></li>
+        <li class="active">{{ $forum->name }}</li>
+    </ol>
+@stop
+
 @section('content')
     <h1>{{ $forum->name }} <a class="btn btn-sm btn-primary pull-right" href="{{ route('laravel-forum.write.post', ['id' => $forum->id]) }}">New Post</a></h1>
 

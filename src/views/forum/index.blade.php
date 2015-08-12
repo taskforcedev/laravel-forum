@@ -1,5 +1,11 @@
 @extends($layout)
 
+@section('breadcrumbs')
+    <ol class="breadcrumb">
+        <li class="active">Forums</li>
+    </ol>
+@stop
+
 @section('content')
     <h1>{{ $sitename or 'Laravel' }} Forums</h1>
 

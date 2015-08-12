@@ -14,7 +14,7 @@
 @extends($layout)
 
 @section('content')
-<h1>Writing post in {{ $forum->name }} Forum.</h1>
+<h1>Writing post in {{ $forum->name }} Forum. <span class="pull-right"><a class="btn btn-info" href="{{ route('laravel-forum.view', $forum->id) }}">Back</a></span></h1>
 <form action="{{ route('laravel-forum.api.store.forum.post') }}" method="POST">
 
     <label>Post Title</label>
