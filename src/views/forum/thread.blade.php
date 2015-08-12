@@ -51,7 +51,7 @@
     @if (isset($replies))
 
         @foreach ($replies as $reply)
-
+            <?php $body = $sanitizer->sanitize($reply->body); ?>
             <div class="panel panel-info forum-reply">
                 <div class="panelbody">
                     <div class="row forum-reply">
@@ -59,7 +59,7 @@
                             {{ $reply->author->name }}
                         </div>
                         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                            {!! nl2br(e($reply->body)) !!}
+                            {!! nl2br($body) !!}
                         </div>
                     </div>
                 </div>
