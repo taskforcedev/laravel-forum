@@ -13,7 +13,7 @@ class PostReply extends Event
 
     public function __construct(ForumReply $reply, $user)
     {
-        $this->reply = reply;
+        $this->reply = $reply;
         $this->user = $user;
     }
 
