@@ -34,7 +34,7 @@
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
                     Author: {{ $post->author->name }}
                 </div>
-                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="border-left: 1px solid #333">
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                     {!! nl2br($body) !!}
                 </div>
             </div>
@@ -46,6 +46,7 @@
         if ($replies->isEmpty()) {
             $replies = null;
         }
+        $replyCounter = 1;
     ?>
 
     @if (isset($replies))
@@ -53,7 +54,10 @@
         @foreach ($replies as $reply)
             <?php $body = $sanitizer->sanitize($reply->body); ?>
             <div class="panel panel-info forum-reply">
-                <div class="panelbody">
+                <div class="panel-heading">
+                    Reply #{{ $replyCounter }} by {{ $reply->author->name }} @ {{ $reply->created_at }}
+                </div>
+                <div class="panel-body">
                     <div class="row forum-reply">
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
                             {{ $reply->author->name }}
