@@ -6,6 +6,7 @@ use Illuminate\Routing\Controller;
 use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\Helpers\UserHelper;
 use Taskforcedev\LaravelForum\Database\Migrator;
+use Taskforcedev\LaravelForum\Helpers\Sanitizer;
 
 /**
  * Class BaseController
@@ -13,8 +14,12 @@ use Taskforcedev\LaravelForum\Database\Migrator;
  */
 class BaseController extends Controller
 {
+    public $sanitizer;
+
     public function __construct()
     {
+        $this->sanitizer = new Sanitizer();
+
         $migrator = new Migrator();
         $migrator->migrate();
 
@@ -131,7 +136,8 @@ class BaseController extends Controller
             'layout' => $this->getLayout(),
             'categories' => ForumCategory::with('forums')->get(),
             'sitename' => config('laravel-forum.sitename'),
-            'wysiwyg' => config('laravel-forum.wysiwyg')
+            'wysiwyg' => config('laravel-forum.wysiwyg'),
+            'sanitizer' => $this->sanitizer
         ];
     }
 }

@@ -3,6 +3,7 @@
 @section('breadcrumbs')
 <?php
     $forum = $post->forum;
+    $body = $sanitizer->sanitize($post->body);
     $sticky = (bool)$post->sticky;
     $locked = (bool)$post->locked;
     if ($locked) {
@@ -34,7 +35,7 @@
                     Author: {{ $post->author->name }}
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="border-left: 1px solid #333">
-                    {!! nl2br(e($post->body)) !!}
+                    {!! nl2br($body) !!}
                 </div>
             </div>
         </div>
