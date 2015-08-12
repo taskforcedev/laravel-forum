@@ -8,7 +8,5 @@
     <exclude-pattern>*/views/*</exclude-pattern>
     <exclude-pattern>routes.php</exclude-pattern>
 
-    <arg name="report" value="summary"/>
-
     <rule ref="PSR2"/>
 </ruleset>
