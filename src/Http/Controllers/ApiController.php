@@ -60,12 +60,13 @@ class ApiController extends BaseController
 
     public function forumPostStore()
     {
+        dd('Forum Post Store');
         if (!Auth::check()) {
             return Response::make('Unauthorized', 401);
         }
 
         $user = Auth::user();
-        
+
         $forum_id = Request::input('forum_id');
 
         $data = [
@@ -82,31 +83,36 @@ class ApiController extends BaseController
         $post = ForumPost::create($data);
 
         event(new PostCreated($post, $user));
-        return Redirect::route('laravel-forum.view.post', [$forum_id , $post->id]);
+        return redirect()->route('laravel-forum.view.post', [$forum_id , $post->id]);
     }
 
     public function forumReplyStore()
     {
+
+
         if (!Auth::check()) {
             return Response::make('Unauthorized', 401);
         }
 
         $user = Auth::user();
 
+        $forum_id = Request::input('forum_id');
+        $post_id = Request::input('post_id');
+
         $data = [
             'author_id' => $user->id,
             'body' => $this->sanitizeData(Request::input('body')),
-            'post_id' => Request::input('post_id'),
+            'post_id' => $post_id,
         ];
 
         if (!ForumReply::valid($data)) {
-            return Redirect::route('laravel-forum.view.post', $data['post_id']);
+            return redirect()->route('laravel-forum.view.post', [$forum_id, $post_id]);
         }
 
         $reply = ForumReply::create($data);
 
         event(new PostReply($reply, $user));
-        return Redirect::route('laravel-forum.view.post', $data['post_id']);
+        return redirect()->route('laravel-forum.view.post', [$forum_id, $post_id]);
     }
 
     private function adminCheck()

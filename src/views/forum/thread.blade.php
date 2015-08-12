@@ -70,6 +70,6 @@
     @endif
 
     @if (!$locked)
-        @include('laravel-forum::forum/_addReply')
+        @include('laravel-forum::forum.thread._addReply')
     @endif
 @stop

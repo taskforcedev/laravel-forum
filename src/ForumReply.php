@@ -40,7 +40,7 @@ class ForumReply extends AbstractModel
     {
         $rules = [
             'body' => 'required|min:3',
-            'post_id' => 'required|min:1|integer|exists:posts,id',
+            'post_id' => 'required|min:1|integer|exists:forum_posts,id',
             'author_id' => 'required|min:1|integer|exists:users,id'
         ];
         $validator = Validator::make($data, $rules);

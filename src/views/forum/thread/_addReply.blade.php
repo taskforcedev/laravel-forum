@@ -7,6 +7,12 @@
                 $js = '//tinymce.cachefly.net/4.2/tinymce.min.js';
                 $css = null;
                 $init = "tinymce.init({selector:'textarea'});";
+                break;
+            default:
+                $js = '//tinymce.cachefly.net/4.2/tinymce.min.js';
+                $css = null;
+                $init = "tinymce.init({selector:'textarea'});";
+                break;
         }
     }
 ?>
@@ -20,14 +26,18 @@
                 <script src="{{ $js }}"></script>
             @endif
         @endif
-        <textarea class="form-control"></textarea>
+        <textarea name="body" class="form-control"></textarea>
         @if (isset($wysiwygInclude))
             <script type="application/javascript">
                 <?=$init;?>
             </script>
         @endif
 
-        <input type="submit" value="Reply" />
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="forum_id" value="{{ $forum->id }}" />
+        <input type="hidden" name="post_id" value="{{ $post->id }}" />
+
+        <input class="btn btn-primary" type="submit" value="Reply" />
     </div>
     </form>
 @endif
