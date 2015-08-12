@@ -60,7 +60,6 @@ class ApiController extends BaseController
 
     public function forumPostStore()
     {
-        dd('Forum Post Store');
         if (!Auth::check()) {
             return Response::make('Unauthorized', 401);
         }

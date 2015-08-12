@@ -32,7 +32,7 @@
         <div class="panel-body">
             <div class="row forum-post">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
-                    Author: {{ $post->author->name }}
+                    {{ $post->author->name }}
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                     {!! nl2br($body) !!}
