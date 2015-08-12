@@ -208,13 +208,13 @@ class ApiController extends BaseController
         }
     }
 
-    public function postDelete($id)
+    public function postDelete($forum_id, $post_id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
             return Response::make('Unauthorised', 401);
         }
 
-        $post = $this->postExists($id);
+        $post = $this->postExists($post_id);
         if (!$post) {
             return Response::make('Post not found', 404);
         }
