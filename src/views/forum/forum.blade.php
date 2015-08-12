@@ -40,7 +40,7 @@
                     <a href="{{ route('laravel-forum.view.post', ['id' => $forum->id, 'fid' => $post->id]) }}">{{ $post->title }}</a></td>
                 <td>{{ $replyCount }}</td>
                 @if (isset($lastReply))
-                    <td>by {{ $replyAuthor }}<br/>at {{ $replyDate }}</td>
+                    <td>{{ $replyAuthor }} @ {{ $replyDate }}</td>
                 @else
                     <td>No replies</td>
                 @endif

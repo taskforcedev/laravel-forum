@@ -47,6 +47,9 @@
         function deletePost()
         {
             $confirm = confirm('Are you sure you wish to delete this thread? This cannot be undone.');
+            var postdata = {
+                "_method": "DELETE"
+            }
 
             if ($confirm) {
                 $.post( data.delete_url, postdata)

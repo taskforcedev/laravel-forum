@@ -95,7 +95,7 @@ class ForumPost extends AbstractModel
             $reply = $replies->last();
 
             return [
-                'author' => $reply->author->username,
+                'author' => $reply->author->name,
                 'date' => $reply->created_at
             ];
         } catch (Exception $e) {
