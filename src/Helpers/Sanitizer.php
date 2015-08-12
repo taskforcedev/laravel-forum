@@ -20,13 +20,11 @@ class Sanitizer
         $script = $dom->getElementsByTagName('script');
 
         $remove = [];
-        foreach($script as $item)
-        {
+        foreach ($script as $item) {
             $remove[] = $item;
         }
 
-        foreach ($remove as $item)
-        {
+        foreach ($remove as $item) {
             $item->parentNode->removeChild($item);
         }
 
@@ -37,6 +35,7 @@ class Sanitizer
 
     public function removeBloat($html)
     {
+        // @codingStandardsIgnoreStart
         $removals = [
             '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">',
             '<html>',
@@ -44,6 +43,7 @@ class Sanitizer
             '</body>',
             '</html>'
         ];
+        // @codingStandardsIgnoreEnd
 
         foreach ($removals as $rem) {
             $html = str_replace($rem, '', $html);
