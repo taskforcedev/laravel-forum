@@ -55,7 +55,7 @@
             if ($confirm) {
                 $.post( data.delete_url, postdata)
                         .done(function() {
-                            window.location.reload();
+                            window.location = "{{ route('laravel-forum.view', $forum->id) }}";
                         });
             }
         }
