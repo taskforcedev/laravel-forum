@@ -2,6 +2,7 @@
 
 use \DB;
 use \Validator;
+use Taskforcedev\LaravelForum\Helpers\UserHelper;
 
 /**
  * Class ForumReply
