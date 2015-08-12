@@ -17,7 +17,7 @@
 <h1>Writing post in {{ $forum->name }} Forum.</h1>
 <form action="{{ route('laravel-forum.api.store.forum.post') }}" method="POST">
 
-    <label class="label">Post Title</label>
+    <label>Post Title</label>
     <input class="form-control" type="text" name="title" id="title" />
 
     @if (isset($wysiwygInclude))
@@ -26,7 +26,7 @@
         @endif
     @endif
 
-    <label class="label">Body</label>
+    <label>Body</label>
     <textarea class="form-control" name="body" id="body" rows="20">
     </textarea>
 
