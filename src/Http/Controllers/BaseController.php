@@ -137,7 +137,8 @@ class BaseController extends Controller
             'categories' => ForumCategory::with('forums')->get(),
             'sitename' => config('laravel-forum.sitename'),
             'wysiwyg' => config('laravel-forum.wysiwyg'),
-            'sanitizer' => $this->sanitizer
+            'sanitizer' => $this->sanitizer,
+            'userHelper' => new UserHelper()
         ];
     }
 }

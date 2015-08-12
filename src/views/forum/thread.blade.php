@@ -2,6 +2,11 @@
 
 @section('breadcrumbs')
 <?php
+    $postCounts = [];
+
+    /* Add Post Authors post count to postCounts array */
+    $postCounts[$post->author->id] = $userHelper->getPostCount($post->author->id);
+
     $forum = $post->forum;
     $body = $sanitizer->sanitize($post->body);
     $sticky = (bool)$post->sticky;
@@ -32,7 +37,8 @@
         <div class="panel-body">
             <div class="row forum-post">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
-                    {{ $post->author->name }}
+                    {{ $post->author->name }}<br/>
+                    Posts: {{ $postCounts[$post->author->id] }}
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                     {!! nl2br($body) !!}
@@ -52,6 +58,9 @@
     @if (isset($replies))
 
         @foreach ($replies as $reply)
+            <?php
+
+            ?>
             <?php $body = $sanitizer->sanitize($reply->body); ?>
             <div class="panel panel-info forum-reply">
                 <div class="panel-heading">
@@ -60,7 +69,8 @@
                 <div class="panel-body">
                     <div class="row forum-reply">
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg2">
-                            {{ $reply->author->name }}
+                            {{ $reply->author->name }}<br/>
+                            Post: {{ $postCounts[$reply->author->id] }}
                         </div>
                         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                             {!! nl2br($body) !!}
