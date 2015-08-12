@@ -32,6 +32,7 @@
                     </h2>
                 </div>
 
+                <div class="panel-body">
                     @if(isset($forums) && !empty($forums))
 
                     <?php $prevCategory = ''; ?>
@@ -39,9 +40,10 @@
                     <ul class="list-group">
 
                         @foreach($forums as $forum)
-                            <?php if ($forum->category !== $prevCategory): ?>
+
+                            @if ($forum->category !== $prevCategory)
                                 <li class="list-group-item list-group-item-info">{{ $forum->category->name }} (Category)</li>
-                            <?php endif; ?>
+                            @endif
                             <li class="list-group-item">{{ $forum->name }}
                                 <button class="btn btn-xs btn-danger pull-right">Delete</button>
                             </li>
@@ -53,7 +55,9 @@
                     </ul>
 
                     @endif
+
                 </div>
+
             </div>
 
         </div>
