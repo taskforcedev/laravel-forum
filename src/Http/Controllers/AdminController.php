@@ -36,7 +36,7 @@ class AdminController extends BaseController
 
         $data = $this->buildData();
         $data['categories'] = ForumCategory::all();
-        $data['forums'] = Forum::all();
+        $data['forums'] = Forum::orderBy('category_id')->get();
         return view('laravel-forum::admin/forums', $data);
     }
 

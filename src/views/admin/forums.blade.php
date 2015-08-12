@@ -24,29 +24,41 @@
                                 id="createForum"
                             @endif
 
-                            ><span class="glyphicon glyphicon-pencil"></span> Create Forum</button>
+                            ><span class="glyphicon glyphicon-plus"></span> Create Forum</button>
                         @else
-                            <button class="btn btn-sm pull-right disabled"><span class="glyphicon glyphicon-pencil"></span> Create Forum</button>
+                            <button class="btn btn-sm pull-right disabled"><span class="glyphicon glyphicon-plus"></span> Create Forum</button>
                         @endif
 
                     </h2>
                 </div>
-                <div class="panel-body">
 
                     @if(isset($forums) && !empty($forums))
-                        <ul class="list-group">
-                            @foreach($forums as $forum)
-                                <div class="forum category"></div>
-                                <li class="list-group-item">{{ $forum->name }} <span class="badge">{{ $forum->category }}</span></li>
-                            @endforeach
-                        </ul>
+
+                    <?php $prevCategory = ''; ?>
+
+                    <ul class="list-group">
+
+                        @foreach($forums as $forum)
+                            <?php if ($forum->category !== $prevCategory): ?>
+                                <li class="list-group-item list-group-item-info">{{ $forum->category->name }} (Category)</li>
+                            <?php endif; ?>
+                            <li class="list-group-item">{{ $forum->name }}
+                                <button class="btn btn-xs btn-danger pull-right">Delete</button>
+                            </li>
+
+                            <?php $prevCategory = $forum->category; ?>
+
+                        @endforeach
+
+                    </ul>
+
                     @endif
                 </div>
             </div>
 
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right">
 
             @include('laravel-forum::admin/_sidebar')
 
