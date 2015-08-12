@@ -49,10 +49,6 @@ class ForumController extends BaseController
         try {
             $post = ForumPost::with('replies')->where('id', $post_id)->firstOrFail();
 
-            if ($post->forum_id !== (int)$forum_id) {
-                throw new Exception("Forum ID's do not match, fid: {$forum_id}, post fid: {$post->forum_id}");
-            }
-
             $data = $this->buildData();
             $data['post'] = $post;
 
