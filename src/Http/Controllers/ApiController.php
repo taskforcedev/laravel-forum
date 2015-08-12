@@ -207,4 +207,19 @@ class ApiController extends BaseController
             return false;
         }
     }
+
+    public function postDelete($id)
+    {
+        if (!$this->canAdministrate() && !$this->canModerate()) {
+            return Response::make('Unauthorised', 401);
+        }
+
+        $post = $this->postExists($id);
+        if (!$post) {
+            return Response::make('Post not found', 404);
+        }
+
+        $post->delete();
+        return Response::make('Post Deleted', 200);
+    }
 }

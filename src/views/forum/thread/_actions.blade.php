@@ -5,7 +5,7 @@
             "unsticky_url": "{{ route('laravel-forum.api.post.unsticky', $post->id) }}",
             "lock_url": "{{ route('laravel-forum.api.post.lock', $post->id) }}",
             "unlock_url": "{{ route('laravel-forum.api.post.unlock', $post->id) }}",
-            "delete_url": "",
+            "delete_url": "{{ route('laravel-forum.api.delete.forum.post', [ $forum->id, $post->id ]) }}",
         }
 
         var postdata = {
@@ -48,7 +48,8 @@
         {
             $confirm = confirm('Are you sure you wish to delete this thread? This cannot be undone.');
             var postdata = {
-                "_method": "DELETE"
+                "_method": "DELETE",
+                "_token": "{{ csrf_token() }}"
             }
 
             if ($confirm) {
