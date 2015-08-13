@@ -87,8 +87,6 @@ class ApiController extends BaseController
 
     public function forumReplyStore()
     {
-
-
         if (!Auth::check()) {
             return Response::make('Unauthorized', 401);
         }
