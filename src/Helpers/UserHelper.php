@@ -1,5 +1,6 @@
 <?php namespace Taskforcedev\LaravelForum\Helpers;
 
+use \Exception;
 use Illuminate\Console\AppNamespaceDetectorTrait;
 use Taskforcedev\LaravelForum\ForumPost;
 use Taskforcedev\LaravelForum\ForumReply;

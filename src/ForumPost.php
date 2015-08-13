@@ -7,6 +7,7 @@ use \Validator;
 /**
  * Class ForumPost
  *
+ * @property integer $id
  * @property string  $title
  * @property string  $body
  * @property integer $forum_id

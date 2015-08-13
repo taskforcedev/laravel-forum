@@ -22,12 +22,6 @@ class BaseController extends Controller
 
         $migrator = new Migrator();
         $migrator->migrate();
-
-        if (!Schema::hasTable('forums')) {
-            return 'Laravel Forums: Error: Unable to migrate tables.';
-        }
-
-        return false;
     }
 
     /**

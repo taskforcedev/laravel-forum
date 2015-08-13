@@ -6,6 +6,8 @@ A drop-in forum module for Laravel 5.
 ## Requirements
 This package requires jQuery and Bootstrap JS to be included in the head of your layout (or you can use the default layout provided) - you can publish this layout if you wish add your own css/code on top of the default.
 
+As this package is aimed at Laravel 5 and above PHP 5.5+ is required.
+
 ## Installation
 
 ### Step 1: Add the package to your composer.json file in the require section.

@@ -6,6 +6,7 @@ use \Validator;
 /**
  * Class Forum
  *
+ * @property integer $id          Forum ID.
  * @property string  $name        Forum Name.
  * @property string  $description Forum Description.
  * @property integer $category_id Category ID.

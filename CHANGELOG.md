@@ -12,3 +12,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
  - TinyMCE as default editor, this can be disabled in config.
  - Script sanitizer for user html input.
  - Breadcrumbs.
+ - Automatically performs database migrations, no need to publish then migrate.
