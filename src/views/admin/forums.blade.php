@@ -45,7 +45,7 @@
                                 <li class="list-group-item list-group-item-info">{{ $forum->category->name }} (Category)</li>
                             @endif
                             <li class="list-group-item">{{ $forum->name }}
-                                <button class="btn btn-xs btn-danger pull-right">Delete</button>
+                                <button class="btn btn-xs btn-danger pull-right" onclick="return deleteForum({{ $forum->id }})">Delete</button>
                             </li>
 
                             <?php $prevCategory = $forum->category; ?>
@@ -69,4 +69,19 @@
         </div>
     </div>
 
+    <script type="application/javascript">
+        var postdata = {
+            "_method": "DELETE",
+            "_token": "{{ csrf_token() }}"
+        }
+
+        function deleteForum(id)
+        {
+            postdata.forum_id = id;
+            $.post("{{ route('laravel-forum.api.delete.forum') }}", postdata)
+            .done(function() {
+                window.location.reload();
+            });
+        }
+    </script>
 @stop

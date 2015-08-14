@@ -22,6 +22,9 @@ Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers'], func
         Route::post('forum_post',     [ 'as' => 'laravel-forum.api.store.forum.post',     'uses' => 'ApiController@forumPostStore'     ]);
         Route::post('forum_reply',    [ 'as' => 'laravel-forum.api.store.forum.reply',    'uses' => 'ApiController@forumReplyStore'    ]);
 
+        Route::delete('forum_category', [ 'as' => 'laravel-forum.api.delete.forum.category', 'uses' => 'ApiController@forumCategoryDelete' ]);
+        Route::delete('forum',          [ 'as' => 'laravel-forum.api.delete.forum',          'uses' => 'ApiController@forumDelete'         ]);
+
         Route::delete('forum/{id}/post/{pid}', [ 'as' => 'laravel-forum.api.delete.forum.post',    'uses' => 'ApiController@postDelete' ]);
 
         Route::post('post/sticky/{id}', [ 'as' => 'laravel-forum.api.post.sticky', 'uses' => 'ApiController@stickyPost' ]);

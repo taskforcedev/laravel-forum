@@ -220,4 +220,58 @@ class ApiController extends BaseController
         $post->delete();
         return Response::make('Post Deleted', 200);
     }
+
+    public function forumDelete()
+    {
+        if (!$this->canAdministrate() && !$this->canModerate()) {
+            return Response::make('Unauthorised', 401);
+        }
+
+        $forum_id = Request::input('forum_id');
+
+        $forum = $this->forumExists($forum_id);
+        if (!$forum) {
+            return Response::make('Forum not found', 404);
+        }
+
+        $forum->delete();
+        return Response::make('Forum Deleted', 200);
+    }
+
+    private function forumExists($id)
+    {
+        try {
+            $forum = Forum::where('id', $id)->firstOrFail();
+            return $forum;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    public function forumCategoryDelete()
+    {
+        if (!$this->canAdministrate() && !$this->canModerate()) {
+            return Response::make('Unauthorised', 401);
+        }
+
+        $cat_id = Request::input('category_id');
+
+        $cat = $this->forumCategoryExists($cat_id);
+        if (!$cat) {
+            return Response::make('Forum Category not found', 404);
+        }
+
+        $cat->delete();
+        return Response::make('Forum Category Deleted', 200);
+    }
+
+    private function forumCategoryExists($id)
+    {
+        try {
+            $cat = ForumCategory::where('id', $id)->firstOrFail();
+            return $cat;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }
