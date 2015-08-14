@@ -2,9 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased][unreleased]
+## [1.0.0] - 2015-08-14
 ### Added
- - Admin ability to create categories and forums.
+ - Admin ability to create/delete categories and forums.
+ - Admin dashboard showing number of posts, forums, categories and replies.
  - Ability to create posts and replies.
  - Admin/mod ability to sticky lock and delete threads.
  - Bootstrap default theme.
