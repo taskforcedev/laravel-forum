@@ -58,9 +58,7 @@
     @if (isset($replies))
 
         @foreach ($replies as $reply)
-            <?php
 
-            ?>
             <?php $body = $sanitizer->sanitize($reply->body); ?>
             <div class="panel panel-info forum-reply">
                 <div class="panel-heading">
@@ -78,6 +76,8 @@
                     </div>
                 </div>
             </div>
+
+            <?php $replyCounter++; ?>
 
         @endforeach
 
