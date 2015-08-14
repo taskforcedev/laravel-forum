@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <h1>{{ $forum->name }} <a class="btn btn-sm btn-primary pull-right" href="{{ route('laravel-forum.write.post', ['id' => $forum->id]) }}">New Post</a></h1>
+    <h1>{{ $forum->name }} <a class="btn btn-sm btn-success pull-right" href="{{ route('laravel-forum.write.post', ['id' => $forum->id]) }}"><span class="glyphicon glyphicon-plus"></span> New Post</a></h1>
 
     <?php
         $posts = $forum->posts;
