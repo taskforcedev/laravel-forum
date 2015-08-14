@@ -12,7 +12,7 @@ As this package is aimed at Laravel 5 and above PHP 5.5+ is required.
 
 ### Step 1: Add the package to your composer.json file in the require section.
 <code>require {
-"taskforcedev/laravel-forum": "dev-master"
+"taskforcedev/laravel-forum": "1.0.*"
 }</code>
 
 (make sure you have the correct comma's after each line but the last to ensure valid json).
