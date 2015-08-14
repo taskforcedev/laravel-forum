@@ -26,7 +26,7 @@
                         <ul class="list-group">
                         @foreach($categories as $cat)
                             <div class="forum category"></div>
-                                <li class="list-group-item">{{ $cat->name }} <button class="btn btn-xs btn-danger pull-right">Delete</button></li>
+                                <li class="list-group-item">{{ $cat->name }} <button class="btn btn-xs btn-danger pull-right" onclick="deleteCategory({{ $cat->id }})">Delete</button></li>
                         @endforeach
                         </ul>
                     @endif
@@ -41,5 +41,21 @@
 
         </div>
     </div>
+
+    <script type="application/javascript">
+        var postdata = {
+            "_method": "DELETE",
+            "_token": "{{ csrf_token() }}"
+        }
+
+        function deleteCategory(id)
+        {
+            postdata.category_id = id;
+            $.post("{{ route('laravel-forum.api.delete.forum.category') }}", postdata)
+            .done(function() {
+                window.location.reload();
+            });
+        }
+    </script>
 
 @stop
