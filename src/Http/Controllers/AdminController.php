@@ -3,6 +3,8 @@
 use \Schema;
 use Taskforcedev\LaravelForum\Database\Migrator;
 use Taskforcedev\LaravelForum\Forum;
+use Taskforcedev\LaravelForum\ForumPost;
+use Taskforcedev\LaravelForum\ForumReply;
 use Taskforcedev\LaravelForum\ForumCategory;
 
 /**
@@ -22,6 +24,14 @@ class AdminController extends BaseController
         }
 
         $data = $this->buildData();
+
+        $data['counts'] = [
+            'forum' => (new Forum)->getCount(),
+            'category' => (new ForumCategory)->getCount(),
+            'post' => (new ForumPost)->getCount(),
+            'reply' => (new ForumReply)->getCount(),
+        ];
+
         return view('laravel-forum::admin/index', $data);
     }
 

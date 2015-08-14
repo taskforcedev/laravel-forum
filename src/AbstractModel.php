@@ -16,4 +16,13 @@ class AbstractModel extends Model
     {
         return $this->getAppNamespace();
     }
+
+    /**
+     * Helper method to get the count of items from a table.
+     */
+    public function getCount()
+    {
+        $count = \DB::select('select COUNT(*) as `count` from ' . $this->table);
+        return $count[0]->count;
+    }
 }
