@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Changed
+Remove sitename and layout from laravel-forum config, users will now change this in the taskforce-support package instead.
+
 ## [1.0.0] - 2015-08-14
 ### Added
  - Admin ability to create/delete categories and forums.
