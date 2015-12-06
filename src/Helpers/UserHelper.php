@@ -1,35 +1,21 @@
 <?php namespace Taskforcedev\LaravelForum\Helpers;
 
 use \Exception;
-use Illuminate\Console\AppNamespaceDetectorTrait;
 use Taskforcedev\LaravelForum\ForumPost;
 use Taskforcedev\LaravelForum\ForumReply;
+use Taskforcedev\LaravelSupport\Helpers\User as SupportUserHelper;
 
-class UserHelper
+/**
+ * Class UserHelper
+ * @package Taskforcedev\LaravelForum\Helpers
+ */
+class UserHelper extends SupportUserHelper
 {
-    use AppNamespaceDetectorTrait;
-
-    public function getUserModel()
-    {
-        /* Get the namespace */
-        $ns = $this->getAppNamespace();
-
-        if ($ns) {
-            /* Try laravel default convention (models in the app folder). */
-            $model = $ns . 'User';
-            if (class_exists($model)) {
-                return $model;
-            }
-
-            /* Try secondary convention of having a models directory. */
-            $model = $ns . 'Models\User';
-            if (class_exists($model)) {
-                return $model;
-            }
-        }
-        return false;
-    }
-
+    /**
+     * Get a users post count (posts created and replies).
+     * @param int $user_id User Id.
+     * @return int
+     */
     public function getPostCount($user_id)
     {
         /* Get count from forum posts */
