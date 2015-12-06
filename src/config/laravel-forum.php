@@ -1,10 +1,6 @@
 <?php
 
 return [
-    'layout' => 'laravel-forum::layout.master',
-
-    'sitename' => 'Laravel',
-
     // What type of modals should the package use.
     'modal' => [
         /*
