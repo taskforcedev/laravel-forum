@@ -2,9 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [1.0.1] - 2015-12-17
 ### Changed
-Remove sitename and layout from laravel-forum config, users will now change this in the taskforce-support package instead.
+ - Now utilizes taskforce-support package for sitename and layout configuration.
+ - Update readme to include instructions to add (if not present) the taskforce-support service provider.
+
+### Removed
+ - Remove sitename and layout from laravel-forum config.
 
 ## [1.0.0] - 2015-08-14
 ### Added

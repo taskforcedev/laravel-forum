@@ -11,24 +11,28 @@ As this package is aimed at Laravel 5 and above PHP 5.5+ is required.
 ## Installation
 
 ### Step 1: Add the package to your composer.json file in the require section.
-<code>require {
-"taskforcedev/laravel-forum": "1.0.*"
-}</code>
+    require {
+      "taskforcedev/laravel-forum": "1.0.*"
+    }
 
 (make sure you have the correct comma's after each line but the last to ensure valid json).
 
 ### Step 2: Then run composer update.
-<code>composer update</code>
+    composer update
 
 ### Step 3: Add service provider to config/app.php.
 
-'providers' => [
-    ...
-    <code>'Taskforcedev\LaravelForum\ServiceProvider',</code>
-]
+    'providers' => [
+        ...
+        'Taskforcedev\LaravelForum\ServiceProvider',
+    ]
+
+Also if not already present in this list please also add:
+
+    Taskforcedev\LaravelSupport\ServiceProvider::class,
 
 ### Step 4: Publish Config.
-<code>php artisan vendor:publish --provider="Taskforcedev\LaravelForum\ServiceProvider" --tag="config"</code>
+    php artisan vendor:publish --provider="Taskforcedev\LaravelForum\ServiceProvider" --tag="config"
 
 ### Step 5: Edit config.
 edit config/laravel-forum to include your apps view layout (unless you really wish to use the packages default).
