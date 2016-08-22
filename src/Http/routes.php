@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers'], function() {
+Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'middleware' => 'web'], function() {
     // Public Routes
     Route::get('forum/{id}/post/{pid}', [ 'as' => 'laravel-forum.view.post',  'uses' => 'ForumController@viewPost'   ]);
 
