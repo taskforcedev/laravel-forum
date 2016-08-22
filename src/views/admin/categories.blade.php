@@ -6,14 +6,12 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
-            @include('laravel-forum::admin/category/_create')
-
             <div class="panel">
                 <div class="panel-heading panel-primary">
-                    <h2>Categories <button class="btn-primary btn btn-sm pull-right"
+                    <h2>Categories
 
                       @if(isset($categories) && !empty($categories))
-                        <a href="" class="btn btn-sm glyphicon glyphicon-plus">Create Category</a>
+                        <a href="{{ route('laravel-forum.admin.category.create') }}" class="btn btn-sm btn-primary glyphicon glyphicon-plus pull-right">Create Category</a>
                       @endif
 
                     </h2>

@@ -8,14 +8,12 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
-            @include('laravel-forum::admin/forum/_create')
-
             <div class="panel">
                 <div class="panel-heading panel-primary">
                     <h2>Forums
 
                         @if(isset($categories) && !empty($categories))
-                          <a href="" class="btn btn-sm glyphicon glyphicon-plus">Create Forum</a>
+                          <a href="{{ route('laravel-forum.admin.forum.create') }}" class="btn btn-sm btn-primary glyphicon glyphicon-plus pull-right">Create Forum</a>
                         @endif
 
                     </h2>

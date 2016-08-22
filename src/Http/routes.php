@@ -10,9 +10,19 @@ Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'midd
 
     // Admin Routes.
     Route::group(['prefix' => 'admin'], function() {
-        Route::get('forum',            [ 'as' => 'laravel-forum.admin.index',      'uses' => 'AdminController@index'      ]);
-        Route::get('forum/forums',     [ 'as' => 'laravel-forum.admin.forums',     'uses' => 'AdminController@forums'     ]);
-        Route::get('forum/categories', [ 'as' => 'laravel-forum.admin.categories', 'uses' => 'AdminController@categories' ]);
+        Route::get('forums',            [ 'as' => 'laravel-forum.admin.index',       'uses' => 'AdminController@index'      ]);
+
+        Route::group(['prefix' => 'forums'], function() {
+            /* Forums */
+            Route::get('forums',        [ 'as' => 'laravel-forum.admin.forums',      'uses' => 'AdminController@forums'    ]);
+            Route::get('forums/create', ['as' => 'laravel-forum.admin.forum.create', 'uses' => 'AdminController@forumForm' ]);
+
+        /* Categories */
+            Route::get('categories/create', ['as' => 'laravel-forum.admin.category.create', 'uses' => 'AdminController@categoryForm' ]);
+            Route::get('categories',        ['as' => 'laravel-forum.admin.categories',   'uses' => 'AdminController@categories']);
+        });
+
+        
     });
 
 });
@@ -21,7 +31,7 @@ Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'midd
 
   Route::group(['prefix' => 'api'], function() {
       /* Forum Category */
-      Route::post('forum_category',   [ 'as' => 'laravel-forum.api.store.forum.category',  'uses' => 'ApiController@forumCategoryStore'  ]);
+      Route::post('forum_category',   [ 'as' => 'laravel-forum.api.store.category',  'uses' => 'ApiController@forumCategoryStore'  ]);
       Route::delete('forum_category', [ 'as' => 'laravel-forum.api.delete.forum.category', 'uses' => 'ApiController@forumCategoryDelete' ]);
 
       /* Forum */

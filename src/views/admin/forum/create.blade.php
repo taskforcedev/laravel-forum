@@ -1,33 +1,38 @@
-<?php
-$fields = [
-    ['name' => 'description', 'type' => 'text'],
-    [
-        'name' => 'category',
-        'type' => 'select',
-        'options' => $categories,
-        'field' => 'name'
-    ]
-];
-$data = [
-    'item' => 'Forum',
-    'fields' => $fields,
-    'url' => route('laravel-forum.api.store.forum'),
-    'done' => "location.reload();",
-];
-?>
+@extends($layout)
 
-<h2>Create Forum</h2>
+@section('content')
 
-<label for="name">Forum Name</label>
-<input type="text" name="name" />
+<div class="row">
+    <h2>Create Forum</h2>
 
-<label for="name">Forum Description</label>
-<input type="text" name="description" />
+    @if (isset($categories) && count($categories) > 0)
 
-@if (isset($categories))
-<select name="category">
-  @foreach ($categories as $cat)
-    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-  @endforeach
-</select>
-@endif
+        <form action="{{ route('laravel-forum.api.store.forum') }}">
+          <div class="form-group">
+            <label for="name">Forum Name</label>
+            <input type="text" name="name" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label for="name">Forum Description</label>
+            <input type="text" name="description" class="form-control" />
+          </div>
+
+
+          <div class="form-group">
+          <select name="category">
+            @foreach ($categories as $cat)
+              <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+            @endforeach
+          </select>
+          </div>
+        </form>
+
+    @else
+
+        <p>You cannot add a forum until you have first added some <a href="{{ route('laravel-forum.admin.category.create') }}">Forum Categories</a>.</p>
+
+    @endif
+
+</div>
+@stop
