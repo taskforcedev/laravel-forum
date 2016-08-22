@@ -25,6 +25,8 @@
               <option value="{{ $cat->id }}">{{ $cat->name }}</option>
             @endforeach
           </select>
+          
+          {{ csrf_field() }}
           </div>
         </form>
 
