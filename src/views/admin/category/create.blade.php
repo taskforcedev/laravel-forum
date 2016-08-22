@@ -12,6 +12,8 @@
             <input type="text" name="name" class="form-control" />
           </div>
 
+          {{ csrf_field() }}
+
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
 
