@@ -11,13 +11,11 @@
             <div class="panel">
                 <div class="panel-heading panel-primary">
                     <h2>Categories <button class="btn-primary btn btn-sm pull-right"
-                        @if (isset($modalType) && $modalType == 'bootstrap')
-                            data-toggle="modal"
-                            data-target="#createCategoryModal"
-                        @else
-                            id="createCategory"
-                        @endif
-                    ><span class="glyphicon glyphicon-plus"></span> Create Category</button>
+
+                      @if(isset($categories) && !empty($categories))
+                        <a href="" class="btn btn-sm glyphicon glyphicon-plus">Create Category</a>
+                      @endif
+
                     </h2>
                 </div>
                 <div class="panel-body">

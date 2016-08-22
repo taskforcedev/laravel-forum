@@ -63,4 +63,15 @@ class AdminController extends BaseController
         $data['categories'] = ForumCategory::all();
         return view('laravel-forum::admin/categories', $data);
     }
+
+    public function forumForm()
+    {
+        if (!$this->canAdministrate()) {
+            return redirect()->route('laravel-forum.index');
+        }
+
+        $data = $this->buildData();
+        $data['categories'] = ForumCategory::all();
+        return view('laravel-forum::admin.forum.create', $data);
+    }
 }
