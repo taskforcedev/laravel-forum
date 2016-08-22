@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'midd
 
 });
 
-Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'middleware' => 'api'], function() {
+Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'middleware' => ['web', 'api']], function() {
 
   Route::group(['prefix' => 'api'], function() {
       /* Forum Category */
