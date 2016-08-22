@@ -1,16 +1,6 @@
 <?php
 
 return [
-    // What type of modals should the package use.
-    'modal' => [
-        /*
-         * Type of modal to use:
-         * Valid options: 'bootstrap', 'jquery',
-         * Currently Supported: 'bootstrap'
-         */
-        'type' => 'bootstrap',
-    ],
-
     'wysiwyg' => [
 
         /**
