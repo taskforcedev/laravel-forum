@@ -25,15 +25,6 @@ class BaseController extends Controller
     }
 
     /**
-     * Gets the modal type preference from config.
-     * @return mixed
-     */
-    public function getModalType()
-    {
-        return config('laravel-forum.modal.type');
-    }
-
-    /**
      * Determine if the user can moderate the forums.
      * @return boolean
      */
