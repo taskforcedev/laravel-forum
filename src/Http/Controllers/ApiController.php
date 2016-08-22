@@ -6,6 +6,9 @@ use \Redirect;
 use \Request;
 use \Response;
 use \Schema;
+
+use Illuminate\Http\Request;
+
 use Taskforcedev\LaravelForum\Forum;
 use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\ForumPost;
@@ -19,10 +22,10 @@ use Taskforcedev\LaravelForum\Events\PostReply;
  */
 class ApiController extends BaseController
 {
-    public function forumCategoryStore()
+    public function forumCategoryStore(Request $request)
     {
         $data = [
-            "name" => Request::input('name'),
+            "name" => $request->input('name'),
         ];
 
         $response = $this->adminCheck();
@@ -32,18 +35,18 @@ class ApiController extends BaseController
 
         /* If data invalid return bad request */
         if (!ForumCategory::valid($data)) {
-            return Response::make('Bad Request', 400);
+            return response('Bad Request', 400);
         }
 
         ForumCategory::create($data);
     }
 
-    public function forumStore()
+    public function forumStore(Request $request)
     {
         $data = [
-            "name" => Request::input('name'),
-            "description" => Request::input('description'),
-            "category_id" => Request::input('category'),
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+            "category_id" => $request->input('category'),
         ];
 
         $response = $this->adminCheck();
@@ -52,31 +55,31 @@ class ApiController extends BaseController
         }
 
         if (!Forum::valid($data)) {
-            return Response::make('Bad Request', 400);
+            return response('Bad Request', 400);
         }
 
         Forum::create($data);
     }
 
-    public function forumPostStore()
+    public function forumPostStore(Request $request)
     {
         if (!Auth::check()) {
-            return Response::make('Unauthorized', 401);
+            return response('Unauthorized', 401);
         }
 
         $user = Auth::user();
 
-        $forum_id = Request::input('forum_id');
+        $forum_id = $request->input('forum_id');
 
         $data = [
             "author_id" => $user->id,
-            "title" => Request::input('title'),
+            "title" => $request->input('title'),
             "body" => $this->sanitizeData(Request::input('body')),
             "forum_id" => $forum_id
         ];
 
         if (!ForumPost::valid($data)) {
-            return Response::make('Bad Request', 400);
+            return response('Bad Request', 400);
         }
 
         $post = ForumPost::create($data);
@@ -85,16 +88,16 @@ class ApiController extends BaseController
         return redirect()->route('laravel-forum.view.post', [$forum_id , $post->id]);
     }
 
-    public function forumReplyStore()
+    public function forumReplyStore(Request $request)
     {
         if (!Auth::check()) {
-            return Response::make('Unauthorized', 401);
+            return response('Unauthorized', 401);
         }
 
         $user = Auth::user();
 
-        $forum_id = Request::input('forum_id');
-        $post_id = Request::input('post_id');
+        $forum_id = $request->input('forum_id');
+        $post_id = $request->input('post_id');
 
         $data = [
             'author_id' => $user->id,
@@ -115,7 +118,7 @@ class ApiController extends BaseController
     private function adminCheck()
     {
         if (!$this->canAdministrate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
     }
 
@@ -132,68 +135,68 @@ class ApiController extends BaseController
         return $data;
     }
 
-    public function lockPost($id)
+    public function lockPost(Request $request, $id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
 
         $post = $this->postExists($id);
         if (!$post) {
-            return Response::make('Post not found', 404);
+            return response('Post not found', 404);
         }
 
         $post->locked = 1;
         $post->save();
-        return Response::make('Post Locked', 200);
+        return response('Post Locked', 200);
     }
 
-    public function unlockPost($id)
+    public function unlockPost(Request $request, $id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
 
         $post = $this->postExists($id);
         if (!$post) {
-            return Response::make('Post not found', 404);
+            return response('Post not found', 404);
         }
 
         $post->locked = 0;
         $post->save();
-        return Response::make('Post Unlocked', 200);
+        return response('Post Unlocked', 200);
     }
 
-    public function stickyPost($id)
+    public function stickyPost(Request $request, $id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
 
         $post = $this->postExists($id);
         if (!$post) {
-            return Response::make('Post not found', 404);
+            return response('Post not found', 404);
         }
 
         $post->sticky = 1;
         $post->save();
-        return Response::make('Post Unlocked', 200);
+        return response('Post Unlocked', 200);
     }
 
-    public function unstickyPost($id)
+    public function unstickyPost(Request $request, $id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
 
         $post = $this->postExists($id);
         if (!$post) {
-            return Response::make('Post not found', 404);
+            return response('Post not found', 404);
         }
 
         $post->sticky = 0;
         $post->save();
-        return Response::make('Post Unlocked', 200);
+        return response('Post Unlocked', 200);
     }
 
     private function postExists($post_id)
@@ -209,33 +212,33 @@ class ApiController extends BaseController
     public function postDelete($forum_id, $post_id)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
 
         $post = $this->postExists($post_id);
         if (!$post) {
-            return Response::make('Post not found', 404);
+            return response('Post not found', 404);
         }
 
         $post->delete();
-        return Response::make('Post Deleted', 200);
+        return response('Post Deleted', 200);
     }
 
-    public function forumDelete()
+    public function forumDelete(Request $request)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
 
         $forum_id = Request::input('forum_id');
 
         $forum = $this->forumExists($forum_id);
         if (!$forum) {
-            return Response::make('Forum not found', 404);
+            return response('Forum not found', 404);
         }
 
         $forum->delete();
-        return Response::make('Forum Deleted', 200);
+        return response('Forum Deleted', 200);
     }
 
     private function forumExists($id)
@@ -248,24 +251,24 @@ class ApiController extends BaseController
         }
     }
 
-    public function forumCategoryDelete()
+    public function forumCategoryDelete(Request $request)
     {
         if (!$this->canAdministrate() && !$this->canModerate()) {
-            return Response::make('Unauthorised', 401);
+            return response('Unauthorised', 401);
         }
 
-        $cat_id = Request::input('category_id');
+        $cat_id = $request->input('category_id');
 
         $cat = $this->forumCategoryExists($cat_id);
         if (!$cat) {
-            return Response::make('Forum Category not found', 404);
+            return response('Forum Category not found', 404);
         }
 
         $cat->delete();
-        return Response::make('Forum Category Deleted', 200);
+        return response('Forum Category Deleted', 200);
     }
 
-    private function forumCategoryExists($id)
+    private function forumCategoryExists(Request $request, $id)
     {
         try {
             $cat = ForumCategory::where('id', $id)->firstOrFail();
