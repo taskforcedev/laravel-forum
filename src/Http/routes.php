@@ -15,22 +15,32 @@ Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'midd
         Route::get('forum/categories', [ 'as' => 'laravel-forum.admin.categories', 'uses' => 'AdminController@categories' ]);
     });
 
-    // Api Routes.
-    Route::group(['prefix' => 'api'], function() {
-        Route::post('forum_category', [ 'as' => 'laravel-forum.api.store.forum.category', 'uses' => 'ApiController@forumCategoryStore' ]);
-        Route::post('forum',          [ 'as' => 'laravel-forum.api.store.forum',          'uses' => 'ApiController@forumStore'         ]);
-        Route::post('forum_post',     [ 'as' => 'laravel-forum.api.store.forum.post',     'uses' => 'ApiController@forumPostStore'     ]);
-        Route::post('forum_reply',    [ 'as' => 'laravel-forum.api.store.forum.reply',    'uses' => 'ApiController@forumReplyStore'    ]);
+});
 
-        Route::delete('forum_category', [ 'as' => 'laravel-forum.api.delete.forum.category', 'uses' => 'ApiController@forumCategoryDelete' ]);
-        Route::delete('forum',          [ 'as' => 'laravel-forum.api.delete.forum',          'uses' => 'ApiController@forumDelete'         ]);
+Route::group(['namespace' => 'Taskforcedev\LaravelForum\Http\Controllers', 'middleware' => 'api'], function() {
 
-        Route::delete('forum/{id}/post/{pid}', [ 'as' => 'laravel-forum.api.delete.forum.post',    'uses' => 'ApiController@postDelete' ]);
+  Route::group(['prefix' => 'api'], function() {
+      /* Forum Category */
+      Route::post('forum_category',   [ 'as' => 'laravel-forum.api.store.forum.category',  'uses' => 'ApiController@forumCategoryStore'  ]);
+      Route::delete('forum_category', [ 'as' => 'laravel-forum.api.delete.forum.category', 'uses' => 'ApiController@forumCategoryDelete' ]);
 
-        Route::post('post/sticky/{id}', [ 'as' => 'laravel-forum.api.post.sticky', 'uses' => 'ApiController@stickyPost' ]);
-        Route::post('post/lock/{id}',   [ 'as' => 'laravel-forum.api.post.lock',   'uses' => 'ApiController@lockPost'   ]);
+      /* Forum */
+      Route::post('forum',   [ 'as' => 'laravel-forum.api.store.forum',  'uses' => 'ApiController@forumStore'  ]);
+      Route::delete('forum', [ 'as' => 'laravel-forum.api.delete.forum', 'uses' => 'ApiController@forumDelete' ]);
 
-        Route::post('post/unsticky/{id}', [ 'as' => 'laravel-forum.api.post.unsticky', 'uses' => 'ApiController@unstickyPost' ]);
-        Route::post('post/unlock/{id}',   [ 'as' => 'laravel-forum.api.post.unlock',   'uses' => 'ApiController@unlockPost'   ]);
-    });
+      /* Forum Post */
+      Route::post('forum_post',              [ 'as' => 'laravel-forum.api.store.forum.post',  'uses' => 'ApiController@forumPostStore' ]);
+      Route::delete('forum/{id}/post/{pid}', [ 'as' => 'laravel-forum.api.delete.forum.post', 'uses' => 'ApiController@postDelete'     ]);
+      /* Forum Post: Reply */
+      Route::post('forum_reply', [ 'as' => 'laravel-forum.api.store.forum.reply', 'uses' => 'ApiController@forumReplyStore' ]);
+
+      /* Lock Forum Post */
+      Route::post('post/unlock/{id}', [ 'as' => 'laravel-forum.api.post.unlock', 'uses' => 'ApiController@unlockPost' ]);
+      Route::post('post/lock/{id}',   [ 'as' => 'laravel-forum.api.post.lock',   'uses' => 'ApiController@lockPost'   ]);
+
+      /* Sticky Forum Post */
+      Route::post('post/sticky/{id}',   [ 'as' => 'laravel-forum.api.post.sticky',   'uses' => 'ApiController@stickyPost'   ]);
+      Route::post('post/unsticky/{id}', [ 'as' => 'laravel-forum.api.post.unsticky', 'uses' => 'ApiController@unstickyPost' ]);
+  });
+
 });
