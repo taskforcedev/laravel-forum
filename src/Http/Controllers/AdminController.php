@@ -63,15 +63,4 @@ class AdminController extends BaseController
         $data['categories'] = ForumCategory::all();
         return view('laravel-forum::admin/categories', $data);
     }
-
-    /**
-     * @return array
-     */
-    public function buildData()
-    {
-        return [
-            'user' => $this->getUser(),
-            'layout' => config('laravel-forum.layout'),
-        ];
-    }
 }
