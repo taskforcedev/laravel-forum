@@ -20,14 +20,14 @@
 
 
           <div class="form-group">
-          <select name="category">
+          <label for="category">Forum Description</label>
+          <select name="category" class="form-control">
             @foreach ($categories as $cat)
               <option value="{{ $cat->id }}">{{ $cat->name }}</option>
             @endforeach
           </select>
-          
-          {{ csrf_field() }}
           </div>
+          {{ csrf_field() }}
         </form>
 
     @else
