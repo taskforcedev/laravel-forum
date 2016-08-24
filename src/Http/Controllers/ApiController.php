@@ -78,7 +78,7 @@ class ApiController extends BaseController
         $data = [
             "author_id" => $user->id,
             "title" => $request->input('title'),
-            "body" => $this->sanitizeData(Request::input('body')),
+            "body" => $this->sanitizeData($request->input('body')),
             "forum_id" => $forum_id
         ];
 
@@ -105,7 +105,7 @@ class ApiController extends BaseController
 
         $data = [
             'author_id' => $user->id,
-            'body' => $this->sanitizeData(Request::input('body')),
+            'body' => $this->sanitizeData($request->input('body')),
             'post_id' => $post_id,
         ];
 
@@ -234,7 +234,7 @@ class ApiController extends BaseController
             return response('Unauthorised', 401);
         }
 
-        $forum_id = Request::input('forum_id');
+        $forum_id = $request->input('forum_id');
 
         $forum = $this->forumExists($forum_id);
         if (!$forum) {
