@@ -6,6 +6,16 @@ A drop-in forum module for Laravel 5.
 ## Requirements
  - Laravel 5.2+
 
+## What this package provides
+ - Fully Functional Forum (/forums)
+ - Admin Interface (/admin/forums)
+
+ - Database Tables
+   - forums
+   - forum_posts
+   - forum_categories
+   - forum_post_replies
+
 ## Installation
 
 ### Step 1: Add the following package to your composer.json require (if not already present).
