@@ -21,6 +21,11 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->views();
         $this->routes();
 
+        // Publish Migrations
+        $this->publishes([
+            __DIR__.'/database/migrations/' => database_path('migrations')
+        ], 'migrations');
+
         // Publish Config
         $this->publishes([
             __DIR__.'/config/laravel-forum.php' => config_path('laravel-forum.php'),
