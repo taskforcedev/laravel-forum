@@ -5,7 +5,7 @@
 
     @if (isset($categories) && count($categories) > 0)
 
-    <form action="{{ route('laravel-forum.api.store.forum') }}">
+    <form action="{{ route('laravel-forum.api.store.forum') }}" method="POST">
       <div class="form-group">
         <label for="name">Forum Name</label>
         <input type="text" name="name" class="form-control" />
