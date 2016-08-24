@@ -6,25 +6,10 @@ class Migrator
 {
     public function migrate()
     {
-        $this->migrateCategories();
         $this->migrateForums();
         $this->migratePosts();
         $this->migrateReplies();
         $this->addFieldsToForumPosts();
-    }
-
-    /**
-     * Adds the Forum Category table.
-     */
-    public function migrateCategories()
-    {
-        if (!Schema::hasTable('forum_categories')) {
-            Schema::create('forum_categories', function ($table) {
-                $table->increments('id');
-                $table->string('name');
-                $table->timestamps();
-            });
-        }
     }
 
     /**

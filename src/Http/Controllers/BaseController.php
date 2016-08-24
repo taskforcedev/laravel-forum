@@ -5,7 +5,6 @@ use \Schema;
 use Taskforcedev\LaravelSupport\Http\Controllers\Controller;
 use Taskforcedev\LaravelForum\ForumCategory;
 use Taskforcedev\LaravelForum\Helpers\UserHelper;
-use Taskforcedev\LaravelForum\Database\Migrator;
 use Taskforcedev\LaravelForum\Helpers\Sanitizer;
 
 /**
@@ -19,9 +18,6 @@ class BaseController extends Controller
     public function __construct()
     {
         $this->sanitizer = new Sanitizer();
-
-        $migrator = new Migrator();
-        $migrator->migrate();
     }
 
     /**
