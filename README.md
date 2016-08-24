@@ -10,7 +10,7 @@ A drop-in forum module for Laravel 5.
 
 ### Add the following package to your composer.json require (if not already present).
     require {
-      "taskforcedev/laravel-support": "",
+      "taskforcedev/laravel-support": "1.0.*",
       "taskforcedev/laravel-forum": "dev-master"
     }
 
