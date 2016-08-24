@@ -7,7 +7,7 @@ A drop-in forum module for Laravel 5.
  - Laravel 5.2+
 
 ## What this package provides
- - Fully Functional Forum (/forums)
+ - Fully Functional Forum (/forum)
  - Admin Interface (/admin/forums)
 
  - Database Tables
