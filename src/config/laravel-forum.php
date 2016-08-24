@@ -15,5 +15,11 @@ return [
          * Currently Supported: None - TODO
          */
         'name' => 'tinymce'
+    ],
+    'avatars' => [
+        /* Whether or not to show a users avatar (uses gravatar module) */
+        'display' => true,
+        /* Default image if user does not have a gravatar */
+        'default' => '',
     ]
 ];
