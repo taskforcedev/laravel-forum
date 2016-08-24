@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased] - Unreleased
+### Changed
+ - Support Laravel 5.2+ only
+ - Use traditional forms over javascript modals.
+ - Remove modal configuration and views.
+
 ## [1.0.1] - 2015-12-17
 ### Changed
  - Now utilizes taskforce-support package for sitename and layout configuration.
