@@ -28,6 +28,8 @@
           </select>
           </div>
           {{ csrf_field() }}
+
+          <button type="submit" class="btn btn-s">Submit</button>
         </form>
 
     @else
