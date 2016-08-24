@@ -6,6 +6,7 @@
 
     <exclude-pattern>*/config/*</exclude-pattern>
     <exclude-pattern>*/views/*</exclude-pattern>
+    <exclude-pattern>*/database/*</exclude-pattern>
     <exclude-pattern>routes.php</exclude-pattern>
 
     <rule ref="PSR2"/>
