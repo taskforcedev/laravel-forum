@@ -8,28 +8,37 @@ A drop-in forum module for Laravel 5.
 
 ## Installation
 
-### Add the following package to your composer.json require (if not already present).
+### Step 1: Add the following package to your composer.json require (if not already present).
     require {
       "taskforcedev/laravel-support": "1.0.*",
       "taskforcedev/laravel-forum": "dev-master"
     }
 
-### Run composer update.
+### Step 2: Run composer update.
     composer update
 
-### Add the following service provider(s) to config/app.php (if not already present).
+### Step 3: Add the following service provider(s) to config/app.php (if not already present).
 
     'providers' => [
         Taskforcedev\LaravelSupport\ServiceProvider::class,
         Taskforcedev\LaravelForum\ServiceProvider::class,
     ]
 
-### Step 4: Publish Config.
+### Step 4: Publish and run migrations.
+Publish the migrations.
+
+    php artisan vendor:publish --provider="Taskforcedev\LaravelForum\ServiceProvider" --tag="config"
+
+Run the migrations
+
+    php artisan migrate
+
+### Step 5: Publish Config.
 If you haven't previously published the config from the LaravelSupport package please do this also with the following command:
 
     php artisan vendor:publish --tag="taskforce-support"
 
-### Step 5: Edit config.
+### Step 6: Edit config.
 If you haven't previously edited the config/taskforce-support.php file please add your sites details into this.
 
     'layout' => 'layouts.master',
