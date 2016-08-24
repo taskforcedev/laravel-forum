@@ -37,6 +37,9 @@ class ApiController extends BaseController
         }
 
         ForumCategory::create($data);
+
+        /* After creating a category lets redirect back to the category list. */
+        return redirect()->route('laravel-forum.admin.categories');
     }
 
     public function forumStore(Request $request)
@@ -57,6 +60,9 @@ class ApiController extends BaseController
         }
 
         Forum::create($data);
+
+        /* After creating a forum lets redirect back to the forum list. */
+        return redirect()->route('laravel-forum.admin.forums');
     }
 
     public function forumPostStore(Request $request)
