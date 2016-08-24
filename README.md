@@ -76,5 +76,6 @@ The following events are fired within the package and can be listened for in you
  - Taskforcedev\LaravelForum\Events\PostCreated
  - Taskforcedev\LaravelForum\Events\PostReply
 
-## Feedback / Outstanding
-We check github issues frequently so please feel free to raise any comments or feedback there.
+## Contributing / Feedback
+ - We welcome any pull requests, please ensure code is to the PSR-2 Standard.
+ - We check github issues frequently so please feel free to raise any comments or feedback there.
