@@ -5,6 +5,7 @@ A drop-in forum module for Laravel 5.
 
 ## Requirements
  - Laravel 5.2+
+ - jQuery is currently required for forum moderation features (lock/sticky).
 
 ## What this package provides
  - Fully Functional Forum (/forum)
