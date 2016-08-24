@@ -29,7 +29,7 @@
           </div>
           {{ csrf_field() }}
 
-          <button type="submit" class="btn btn-s">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
     @else
