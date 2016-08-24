@@ -11,7 +11,7 @@
                     <h2>Categories
 
                       @if(isset($categories) && !empty($categories))
-                        <a href="{{ route('laravel-forum.admin.category.create') }}" class="btn btn-sm btn-primary glyphicon glyphicon-plus pull-right">Create Category</a>
+                        <a href="{{ route('laravel-forum.admin.category.create') }}" class="btn btn-sm btn-primary pull-right">Create Category</a>
                       @endif
 
                     </h2>
