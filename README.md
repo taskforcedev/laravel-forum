@@ -27,7 +27,7 @@ A drop-in forum module for Laravel 5.
 ### Step 4: Publish and run migrations.
 Publish the migrations.
 
-    php artisan vendor:publish --provider="Taskforcedev\LaravelForum\ServiceProvider" --tag="config"
+    php artisan vendor:publish --provider="Taskforcedev\LaravelForum\ServiceProvider" --tag="migrations"
 
 Run the migrations
 
