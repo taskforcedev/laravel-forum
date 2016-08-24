@@ -5,8 +5,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - Unreleased
 ### Changed
  - Support Laravel 5.2+ only
- - Use traditional forms over javascript modals.
+
+### Removed
  - Remove modal configuration and views.
+ - Use traditional forms over javascript modals.
 
 ## [1.0.1] - 2015-12-17
 ### Changed
