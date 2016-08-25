@@ -15,17 +15,17 @@
         function stickyPost()
         {
             $.post( data.sticky_url, postdata)
-                    .done(function() {
-                        window.location.reload();
-                    });
+                .done(function() {
+                    window.location.reload();
+                });
         }
 
         function unstickyPost()
         {
             $.post( data.unsticky_url, postdata)
-                    .done(function() {
-                        window.location.reload();
-                    });
+                .done(function() {
+                    window.location.reload();
+                });
         }
 
         function lockPost()
@@ -39,9 +39,9 @@
         function unlockPost()
         {
             $.post( data.unlock_url, postdata)
-                    .done(function() {
-                        window.location.reload();
-                    });
+                .done(function() {
+                    window.location.reload();
+                });
         }
 
         function deletePost()
@@ -54,9 +54,9 @@
 
             if ($confirm) {
                 $.post( data.delete_url, postdata)
-                        .done(function() {
-                            window.location = "{{ route('laravel-forum.view', $forum->id) }}";
-                        });
+                    .done(function() {
+                        window.location = "{{ route('laravel-forum.view', $forum->id) }}";
+                    });
             }
         }
     </script>
