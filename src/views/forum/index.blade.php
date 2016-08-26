@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h1>{{ $sitename or 'Laravel' }} Forums</h1>
+    <h1>{{ $sitename or 'Laravel' }} - Forums</h1>
     @if(isset($categories) && !empty($categories))
         <table class="table forum">
         @foreach($categories as $cat)
