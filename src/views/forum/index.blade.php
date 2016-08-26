@@ -8,8 +8,9 @@
 
 @section('content')
     <h1>{{ $sitename or 'Laravel' }} - Forums</h1>
+    <div class="forums">
     @if(isset($categories) && !empty($categories))
-        <table class="table forum">
+        <table class="table forum-category">
         @foreach($categories as $cat)
                 <thead>
                     <tr>
@@ -26,6 +27,7 @@
         @endforeach
         </table>
     @else
-        You have no forum categories yet.
+        <p>You have no forum categories yet.</p>
     @endif
+    </div>
 @stop
