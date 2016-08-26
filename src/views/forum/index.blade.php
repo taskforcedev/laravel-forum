@@ -20,7 +20,11 @@
                 </thead>
                 @foreach($cat->forums as $forum)
                     <tr class="forum">
-                        <td><a href="{{ route('laravel-forum.view', ['id' => $forum->id]) }}">{{ $forum->name }}</a> <small>- {{ $forum->description }}</small></td>
+                        <td><a href="{{ route('laravel-forum.view', ['id' => $forum->id]) }}">{{ $forum->name }}</a>
+                        @if(isset($forum->description) && !empty($forum->description))
+                        <small> - {{ $forum->description }}</small>
+                        @endif
+                        </td>
                         <td>{{ $forum->getThreadCount() }}</td>
                     </tr>
                 @endforeach
