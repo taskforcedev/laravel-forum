@@ -50,7 +50,7 @@ class BaseController extends Controller
             'user' => $this->getUser(),
             'layout' => $this->getLayout(),
             'categories' => ForumCategory::with('forums')->get(),
-            'sitename' => config('laravel-forum.sitename'),
+            'sitename' => config('taskforce-support.sitename'),
             'wysiwyg' => config('laravel-forum.wysiwyg'),
             'sanitizer' => $this->sanitizer,
             'userHelper' => new UserHelper()
