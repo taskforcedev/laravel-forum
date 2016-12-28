@@ -21,14 +21,21 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->views();
         $this->routes();
         $this->migrations();
+        $this->config();
+    }
 
+    /**
+     * Register the config and merge any published config.
+     */
+    public function config()
+    {
         // Publish Config
         $this->publishes([
-            __DIR__.'/config/laravel-forum.php' => config_path('laravel-forum.php'),
+            __DIR__ . '/../config/laravel-forum.php' => config_path('laravel-forum.php'),
         ], 'config');
 
         $this->mergeConfigFrom(
-            __DIR__.'/config/laravel-forum.php',
+            __DIR__ . '/../config/laravel-forum.php',
             'laravel-forum'
         );
 
@@ -58,6 +65,9 @@ class ServiceProvider extends IlluminateServiceProvider
         require __DIR__ . '/Http/routes.php';
     }
 
+    /**
+     * Register the package migrations.
+     */
     public function migrations()
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
