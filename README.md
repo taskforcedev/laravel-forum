@@ -68,21 +68,25 @@ If you haven't previously edited the config/taskforce-support.php file please ad
     'sitename' => 'Your Site Name',
 
 ## Usage
-Once you have done the installation steps above in order to setup the forums for public use you must first create at least one category and a forum, you do this by going to yoursite.com/admin/forums (this will also create the required tables).
-Once you have done this you can add the link to /forum into your sites navigation as you please.
+
+Once you have done the installation steps above in order to setup the forums for public use you must first create at least one category and a forum, you do this by visiting
+
+    /admin/forums
+
+Once you have done this you can add the link to <code>/forum</code> into your sites navigation as you please.
 
 ## Administration / Moderation
-In order to provide administrators access to add/edit/manage the forums we use a "can" method on the user model which is laravel convention.
+In order to provide administrators access to add/edit/manage the forums we use laravel policies.
 
 The following must return true for a user to be able to visit the admin section:
 
     $user->can('create', Forum::class);
 
-It is recommended to have a policy which proves a user has administration powers on your application:
+We recommended you have a policy which proves a user has administration powers on your application:
 
 see: https://laravel.com/docs/5.3/authorization#creating-policies
 
-Then you can add the following to your config/auth:
+Then you can add the following to your config/auth.php:
 
     use Taskforcedev\LaravelForum\Models\Forum;
     use Taskforcedev\LaravelForum\Models\ForumCategory;
