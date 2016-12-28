@@ -1,8 +1,8 @@
 <?php namespace Taskforcedev\LaravelForum\Helpers;
 
 use \Exception;
-use Taskforcedev\LaravelForum\ForumPost;
-use Taskforcedev\LaravelForum\ForumReply;
+use Taskforcedev\LaravelForum\Models\ForumPost;
+use Taskforcedev\LaravelForum\Models\ForumReply;
 use Taskforcedev\LaravelSupport\Helpers\User as SupportUserHelper;
 
 /**
