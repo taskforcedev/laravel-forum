@@ -20,10 +20,16 @@ A drop-in forum module for Laravel 5.
 ## Installation
 
 ### Step 1: Add the following package to your composer.json require (if not already present).
+
+Laravel 5.0-5.2:
+
     require {
-      "taskforcedev/laravel-support": "1.0.*",
-      "taskforcedev/laravel-forum": "dev-master"
+      "taskforcedev/laravel-forum": "1.0.2"
     }
+    
+Laravel 5.3+:
+
+In development (steps for 5.0-5.2 may work as long as you dont require a package requiring the newer laravel-support package).
 
 ### Step 2: Run composer update.
     composer update
