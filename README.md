@@ -112,3 +112,9 @@ The following events are fired within the package and can be listened for in you
 ## Contributing / Feedback
  - We welcome any pull requests, please ensure code is to the PSR-2 Standard.
  - We check github issues frequently so please feel free to raise any comments or feedback there.
+
+## Versioning
+
+Version 1.* follows the semantic version numbering system.
+
+Future versions will use the laravel major and minor version numbers followed by release number.
