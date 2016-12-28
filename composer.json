@@ -6,7 +6,7 @@
   "type": "project",
   "require": {
     "laravel/framework": "5.*",
-    "taskforcedev/laravel-support": "1.*",
+    "taskforcedev/laravel-support": "1.0.9",
     "taskforcedev/gravatar": "1.0.*"
   },
   "require-dev": {

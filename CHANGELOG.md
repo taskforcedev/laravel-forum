@@ -2,13 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - Unreleased
+## [1.0.2] - 2016-12-28
 ### Changed
- - Support Laravel 5.2+ only
+ - Lock laravel-support package to v1.0.9 to support laravel 5.0-5.2.
 
 ### Removed
  - Remove modal configuration and views.
  - Use traditional forms over javascript modals.
+ - Remove composer.lock file.
 
 ## [1.0.1] - 2015-12-17
 ### Changed
