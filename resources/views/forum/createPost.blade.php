@@ -1,5 +1,12 @@
 @extends($layout)
 
+@section('breadcrumbs')
+    <ol class="breadcrumb">
+        <li><a href="{{ route('laravel-forum.index') }}">Forums</a></li>
+        <li class="active"><a href="{{ route('laravel-forum.view', $forum->id) }}">{{ $forum->name }}</a></li>
+    </ol>
+@endsection
+
 @section('content')
 <h1>Writing post in {{ $forum->name }} Forum. <span class="pull-right"><a class="btn btn-info" href="{{ route('laravel-forum.view', $forum->id) }}">Back</a></span></h1>
 <form action="{{ route('laravel-forum.api.store.forum.post') }}" method="POST">
