@@ -89,14 +89,4 @@ class AdminController extends BaseController
         $data = $this->buildData();
         return view('laravel-forum::admin.category.create', $data);
     }
-
-    public function canCreateForums()
-    {
-        try {
-            $user = Auth::user();
-            return $user->can('create', Forum::class);
-        } catch (\Exception $e) {
-            return false;
-        }
-    }
 }

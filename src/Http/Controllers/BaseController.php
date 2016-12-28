@@ -40,6 +40,16 @@ class BaseController extends Controller
         return false;
     }
 
+    public function canCreateForums()
+    {
+        try {
+            $user = Auth::user();
+            return $user->can('create', Forum::class);
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
     /**
      * Builds data required for views.
      * @return array

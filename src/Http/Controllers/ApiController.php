@@ -121,7 +121,7 @@ class ApiController extends BaseController
 
     private function adminCheck()
     {
-        if (!$this->canAdministrate()) {
+        if (!$this->canCreateForums()) {
             return response('Unauthorised', 401);
         }
     }
