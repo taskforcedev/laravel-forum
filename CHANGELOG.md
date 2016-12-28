@@ -3,9 +3,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
-## Changed
+### Changed
  - Laravel 5.3+ requirement.
  - Migrations are now loaded from the package without requiring to be published.
+
+### Fixed
+ - Fix label for forum category on forum creation admin form.
 
 ## [1.0.2] - 2016-12-28
 ### Changed
