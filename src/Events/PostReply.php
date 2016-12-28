@@ -1,8 +1,7 @@
 <?php namespace Taskforcedev\LaravelForum\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Taskforcedev\LaravelForum\ForumPost;
-use Taskforcedev\LaravelForum\ForumReply;
+use Taskforcedev\LaravelForum\Models\ForumReply;
 
 class PostReply extends Event
 {
