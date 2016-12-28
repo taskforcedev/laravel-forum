@@ -78,11 +78,27 @@ In order to provide administrators access to add/edit/manage the forums we use a
 
 The following must return true for a user to be able to visit the admin section:
 
-    $user->can('administrate');
+    $user->can('create', Forum::class);
 
-see: https://laravel.com/docs/5.3/authorization#gates
+It is recommended to have a policy which proves a user has administration powers on your application:
 
-We will later add additional options to provide more comprehensive permissions.
+see: https://laravel.com/docs/5.3/authorization#creating-policies
+
+Then you can add the following to your config/auth:
+
+    use Taskforcedev\LaravelForum\Models\Forum;
+    use Taskforcedev\LaravelForum\Models\ForumCategory;
+
+Then apply your admin policy to each of the models [example:]
+
+    protected $policies = [
+        ...
+        
+        Forum::class => AdminPolicy::class,
+        ForumCategory::class => AdminPolicy::class,
+    ];
+
+As it stands any authenticated user is able to post or reply in any forum.
 
 ## Events
 
