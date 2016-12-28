@@ -16,3 +16,7 @@
     <input type="submit" class="btn btn-success" />
 </form>
 @stop
+
+@section('scripts')
+    @include('partials.scripts._wysiwyg')
+@endsection
