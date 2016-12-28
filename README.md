@@ -33,6 +33,10 @@ Laravel 5.2:
     
 Laravel 5.3+:
 
+    require {
+        "taskforcedev/laravel-forum": "dev-master"
+    }
+
 In development (steps for 5.0-5.2 may work as long as you dont require a package requiring the newer laravel-support package).
 
 ### Step 2: Run composer update.
@@ -70,13 +74,19 @@ Once you have done the installation steps above in order to setup the forums for
 Once you have done this you can add the link to /forum into your sites navigation as you please.
 
 ## Administration / Moderation
-In order to provide administrators access to add/edit/manage the forums we use a "can" method on the user model which is our convention.
+In order to provide administrators access to add/edit/manage the forums we use a "can" method on the user model which is laravel convention.
 
-To provide basic addition functionality the following must return true.
-<code>$user->can('forum-administrate');</code>
+To provide administrator functionality the following must return true.
 
-To grant users full moderation permissions we will implement checks based on the following.
-<code>$user->can('forum-moderate');</code>
+    $user->can('forum-administrate');
+
+To grant users moderation permissions we will implement checks based on the following.
+
+    $user->can('forum-moderate');
+
+Both of these will also return true if:
+
+    $user->can('administrate');
 
 We will later add additional options to provide more comprehensive permissions.
 
