@@ -61,13 +61,17 @@ class BaseController extends Controller
      */
     protected function buildData($data = [])
     {
-        $data['user'] = $this->getUser();
+        $user = $this->getUser();
+        $data['user'] = $user;
         $data['layout'] = $this->getLayout();
         $data['categories'] = ForumCategory::with('forums')->get();
         $data['sitename'] = $this->getSitename();
         $data['wysiwyg'] = config('laravel-forum.wysiwyg');
         $data['sanitizer'] = $this->sanitizer;
         $data['userHelper'] = new UserHelper();
+        if (Auth::check()) {
+            $data['isAdmin'] = $user->can('create', Forum::class);
+        }
 
         return $data;
     }
