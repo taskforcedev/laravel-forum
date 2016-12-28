@@ -42,6 +42,10 @@ class BaseController extends Controller
 
     public function canCreateForums()
     {
+        if (!Auth::check()) {
+            return false;
+        }
+
         try {
             $user = Auth::user();
             return $user->can('create', Forum::class);
