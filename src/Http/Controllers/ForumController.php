@@ -1,8 +1,8 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use \Exception;
-use Taskforcedev\LaravelForum\Forum;
-use Taskforcedev\LaravelForum\ForumPost;
+use Taskforcedev\LaravelForum\Models\Forum;
+use Taskforcedev\LaravelForum\Models\ForumPost;
 
 /**
  * Class ForumController

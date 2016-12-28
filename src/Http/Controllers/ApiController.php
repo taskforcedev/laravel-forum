@@ -7,12 +7,12 @@ use \Schema;
 
 use Illuminate\Http\Request;
 
-use Taskforcedev\LaravelForum\Forum;
-use Taskforcedev\LaravelForum\ForumCategory;
-use Taskforcedev\LaravelForum\ForumPost;
-use Taskforcedev\LaravelForum\ForumReply;
 use Taskforcedev\LaravelForum\Events\PostCreated;
 use Taskforcedev\LaravelForum\Events\PostReply;
+use Taskforcedev\LaravelForum\Models\Forum;
+use Taskforcedev\LaravelForum\Models\ForumCategory;
+use Taskforcedev\LaravelForum\Models\ForumPost;
+use Taskforcedev\LaravelForum\Models\ForumReply;
 
 /**
  * Class ApiController

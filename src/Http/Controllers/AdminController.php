@@ -1,11 +1,11 @@
 <?php namespace Taskforcedev\LaravelForum\Http\Controllers;
 
 use \Schema;
-use Taskforcedev\LaravelForum\Database\Migrator;
-use Taskforcedev\LaravelForum\Forum;
-use Taskforcedev\LaravelForum\ForumPost;
-use Taskforcedev\LaravelForum\ForumReply;
-use Taskforcedev\LaravelForum\ForumCategory;
+use Illuminate\Http\Request;
+use Taskforcedev\LaravelForum\Models\Forum;
+use Taskforcedev\LaravelForum\Models\ForumPost;
+use Taskforcedev\LaravelForum\Models\ForumReply;
+use Taskforcedev\LaravelForum\Models\ForumCategory;
 
 /**
  * Class AdminController
