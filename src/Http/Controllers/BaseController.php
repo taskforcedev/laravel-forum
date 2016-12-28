@@ -3,6 +3,7 @@
 use \Auth;
 use \Schema;
 use Taskforcedev\LaravelSupport\Http\Controllers\Controller;
+use Taskforcedev\LaravelForum\Models\Forum;
 use Taskforcedev\LaravelForum\Models\ForumCategory;
 use Taskforcedev\LaravelForum\Helpers\UserHelper;
 use Taskforcedev\LaravelForum\Helpers\Sanitizer;
