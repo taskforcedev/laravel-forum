@@ -39,20 +39,18 @@ Laravel 5.3+:
 
 In development (steps for 5.0-5.2 may work as long as you dont require a package requiring the newer laravel-support package).
 
-### Step 2: Run composer update.
+### Step 2: Run composer update
+
     composer update
 
-### Step 3: Add the following service provider(s) to config/app.php (if not already present).
+### Step 3: Add the following service provider(s) to config/app.php (if not already present)
 
     'providers' => [
         Taskforcedev\LaravelSupport\ServiceProvider::class,
         Taskforcedev\LaravelForum\ServiceProvider::class,
     ]
 
-### Step 4: Publish and run migrations.
-Publish the migrations.
-
-    php artisan vendor:publish --provider="Taskforcedev\LaravelForum\ServiceProvider" --tag="migrations"
+### Step 4: Migrate
 
 Run the migrations
 
