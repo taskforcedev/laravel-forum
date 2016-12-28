@@ -1,4 +1,6 @@
-<?php namespace Taskforcedev\LaravelForum;
+<?php
+
+namespace Taskforcedev\LaravelForum\Models;
 
 use \Validator;
 
@@ -8,7 +10,7 @@ use \Validator;
  * @property integer $id   Category ID.
  * @property string  $name Category Name.
  *
- * @package Taskforcedev\LaravelForum
+ * @package Taskforcedev\LaravelForum\Models
  */
 class ForumCategory extends AbstractModel
 {

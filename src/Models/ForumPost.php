@@ -1,4 +1,6 @@
-<?php namespace Taskforcedev\LaravelForum;
+<?php
+
+namespace Taskforcedev\LaravelForum\Models;
 
 use \Exception;
 use Taskforcedev\LaravelForum\Helpers\UserHelper;
@@ -15,7 +17,7 @@ use \Validator;
  * @property integer $sticky
  * @property integer $locked
  *
- * @package Taskforcedev\LaravelForum
+ * @package Taskforcedev\LaravelForum\Models
  */
 class ForumPost extends AbstractModel
 {

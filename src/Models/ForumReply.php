@@ -1,4 +1,6 @@
-<?php namespace Taskforcedev\LaravelForum;
+<?php
+
+namespace Taskforcedev\LaravelForum\Models;
 
 use \DB;
 use \Validator;
@@ -11,7 +13,7 @@ use Taskforcedev\LaravelForum\Helpers\UserHelper;
  * @property integer $post_id   Post ID.
  * @property integer $author_id Author ID.
  *
- * @package Taskforcedev\LaravelForum
+ * @package Taskforcedev\LaravelForum\Models
  */
 class ForumReply extends AbstractModel
 {

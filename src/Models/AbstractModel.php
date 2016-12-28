@@ -1,4 +1,6 @@
-<?php namespace Taskforcedev\LaravelForum;
+<?php
+
+namespace Taskforcedev\LaravelForum\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -6,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class AbstractModel
  * Extends Illuminate\Database\Eloquent\Model
  *
- * @package Taskforcedev\LaravelForum
+ * @package Taskforcedev\LaravelForum\Models
  */
 class AbstractModel extends Model
 {

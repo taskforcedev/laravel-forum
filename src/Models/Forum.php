@@ -1,4 +1,6 @@
-<?php namespace Taskforcedev\LaravelForum;
+<?php
+
+namespace Taskforcedev\LaravelForum\Models;
 
 use \DB;
 use \Validator;
@@ -12,7 +14,7 @@ use \Validator;
  * @property integer $category_id Category ID.
  * @property integer $public      Whether the forum is publicly viewable.
  *
- * @package Taskforcedev\LaravelForum
+ * @package Taskforcedev\LaravelForum\Models
  */
 class Forum extends AbstractModel
 {
