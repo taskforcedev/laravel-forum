@@ -25,5 +25,5 @@
 @stop
 
 @section('scripts')
-    @include('partials.scripts._wysiwyg')
+    @include('laravel-forum::partials.scripts._wysiwyg')
 @endsection
