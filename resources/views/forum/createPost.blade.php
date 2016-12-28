@@ -8,7 +8,7 @@
     <input class="form-control" type="text" name="title" id="title" />
 
     <label>Body</label>
-    <textarea class="form-control" name="body" id="body" rows="20">
+    <textarea class="form-control wysiwyg" name="body" id="body" rows="20">
     </textarea>
 
     <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}" />
