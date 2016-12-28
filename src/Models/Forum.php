@@ -28,7 +28,7 @@ class Forum extends AbstractModel
      */
     public function category()
     {
-        return $this->belongsTo('Taskforcedev\LaravelForum\ForumCategory');
+        return $this->belongsTo(ForumCategory::class);
     }
 
     /**
@@ -37,7 +37,7 @@ class Forum extends AbstractModel
      */
     public function posts()
     {
-        return $this->hasMany('Taskforcedev\LaravelForum\ForumPost');
+        return $this->hasMany(ForumPost::class);
     }
 
     /**

@@ -42,7 +42,7 @@ class ForumPost extends AbstractModel
      */
     public function forum()
     {
-        return $this->belongsTo('Taskforcedev\LaravelForum\Forum');
+        return $this->belongsTo(Forum::class);
     }
 
     /**
@@ -53,7 +53,7 @@ class ForumPost extends AbstractModel
     {
         $local = 'id';
         $foreign = 'post_id';
-        return $this->hasMany('Taskforcedev\LaravelForum\ForumReply', $foreign, $local);
+        return $this->hasMany(ForumReply::class, $foreign, $local);
     }
 
     /**
