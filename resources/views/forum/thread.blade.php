@@ -87,3 +87,7 @@
         @include('laravel-forum::forum.thread._addReply')
     @endif
 @stop
+
+@section('scripts')
+    @include('partials.scripts._wysiwyg')
+@endsection
