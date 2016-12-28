@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+## Changed
+ - Laravel 5.3+ requirement.
+ - Migrations are now loaded from the package without requiring to be published.
+
 ## [1.0.2] - 2016-12-28
 ### Changed
  - Lock laravel-support package to v1.0.9 to support laravel 5.0-5.2.
