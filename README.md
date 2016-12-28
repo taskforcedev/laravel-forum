@@ -76,17 +76,11 @@ Once you have done this you can add the link to /forum into your sites navigatio
 ## Administration / Moderation
 In order to provide administrators access to add/edit/manage the forums we use a "can" method on the user model which is laravel convention.
 
-To provide administrator functionality the following must return true.
-
-    $user->can('forum-administrate');
-
-To grant users moderation permissions we will implement checks based on the following.
-
-    $user->can('forum-moderate');
-
-Both of these will also return true if:
+The following must return true for a user to be able to visit the admin section:
 
     $user->can('administrate');
+
+see: https://laravel.com/docs/5.3/authorization#gates
 
 We will later add additional options to provide more comprehensive permissions.
 
