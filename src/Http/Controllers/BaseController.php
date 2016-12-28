@@ -44,16 +44,16 @@ class BaseController extends Controller
      * Builds data required for views.
      * @return array
      */
-    protected function buildData()
+    protected function buildData($data = [])
     {
-        return [
-            'user' => $this->getUser(),
-            'layout' => $this->getLayout(),
-            'categories' => ForumCategory::with('forums')->get(),
-            'sitename' => config('taskforce-support.sitename'),
-            'wysiwyg' => config('laravel-forum.wysiwyg'),
-            'sanitizer' => $this->sanitizer,
-            'userHelper' => new UserHelper()
-        ];
+        $data['user'] = $this->getUser();
+        $data['layout'] = $this->getLayout();
+        $data['categories'] = ForumCategory::with('forums')->get();
+        $data['sitename'] = $this->getSitename();
+        $data['wysiwyg'] = config('laravel-forum.wysiwyg');
+        $data['sanitizer'] = $this->sanitizer;
+        $data['userHelper'] = new UserHelper();
+
+        return $data;
     }
 }
