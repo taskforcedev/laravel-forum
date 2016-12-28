@@ -86,7 +86,7 @@ We recommended you have a policy which proves a user has administration powers o
 
 see: https://laravel.com/docs/5.3/authorization#creating-policies
 
-Then you can add the following to your AuthServiceProvider
+Then you can add the following to your app/Providers/AuthServiceProvider.php file
 
     use Taskforcedev\LaravelForum\Models\Forum;
     use Taskforcedev\LaravelForum\Models\ForumCategory;
