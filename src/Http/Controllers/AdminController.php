@@ -19,7 +19,8 @@ class AdminController extends BaseController
      */
     public function index()
     {
-        if (!$this->canAdministrate()) {
+        // Check if the user is able to create forums.
+        if (!$this->canCreateForums()) {
             return redirect()->route('laravel-forum.index');
         }
 
@@ -40,7 +41,8 @@ class AdminController extends BaseController
      */
     public function forums()
     {
-        if (!$this->canAdministrate()) {
+        // Check if the user is able to create forums.
+        if (!$this->canCreateForums()) {
             return redirect()->route('laravel-forum.index');
         }
 
@@ -55,7 +57,8 @@ class AdminController extends BaseController
      */
     public function categories()
     {
-        if (!$this->canAdministrate()) {
+        // Check if the user is able to create forums.
+        if (!$this->canCreateForums()) {
             return redirect()->route('laravel-forum.index');
         }
 
@@ -66,7 +69,8 @@ class AdminController extends BaseController
 
     public function forumForm()
     {
-        if (!$this->canAdministrate()) {
+        // Check if the user is able to create forums.
+        if (!$this->canCreateForums()) {
             return redirect()->route('laravel-forum.index');
         }
 
@@ -77,11 +81,22 @@ class AdminController extends BaseController
 
     public function categoryForm()
     {
-        if (!$this->canAdministrate()) {
+        // Check if the user is able to create forums.
+        if (!$this->canCreateForums()) {
             return redirect()->route('laravel-forum.index');
         }
 
         $data = $this->buildData();
         return view('laravel-forum::admin.category.create', $data);
+    }
+
+    public function canCreateForums()
+    {
+        try {
+            $user = Auth::user();
+            return $user->can('create', Forum::class);
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }
