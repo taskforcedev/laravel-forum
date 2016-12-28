@@ -21,7 +21,7 @@ A drop-in forum module for Laravel 5.
 
 ### Step 1: Add the following package to your composer.json require (if not already present).
 
-Laravel 5.0-5.2:
+Laravel 5.2:
 
     require {
       "taskforcedev/laravel-forum": "1.0.2"

@@ -51,7 +51,7 @@
 
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right">
 
-            @include('laravel-forum::admin/_sidebar')
+            @include('laravel-forum::admin._sidebar')
 
         </div>
     </div>

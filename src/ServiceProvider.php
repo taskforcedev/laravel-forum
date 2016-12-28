@@ -20,11 +20,7 @@ class ServiceProvider extends IlluminateServiceProvider
     {
         $this->views();
         $this->routes();
-
-        // Publish Migrations
-        $this->publishes([
-            __DIR__.'/database/migrations/' => database_path('migrations')
-        ], 'migrations');
+        $this->migrations();
 
         // Publish Config
         $this->publishes([
@@ -51,7 +47,7 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     public function views()
     {
-        $this->loadViewsFrom(__DIR__.'/views', 'laravel-forum');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-forum');
     }
 
     /**
@@ -60,5 +56,10 @@ class ServiceProvider extends IlluminateServiceProvider
     public function routes()
     {
         require __DIR__ . '/Http/routes.php';
+    }
+
+    public function migrations()
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }
