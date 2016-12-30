@@ -10,7 +10,8 @@
     "taskforcedev/gravatar": "1.0.*"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "2.*"
+    "phpunit/phpunit": "4.5.*",
+    "mockery/mockery": "dev-master"
   },
   "autoload": {
     "psr-4": {
