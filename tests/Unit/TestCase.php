@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Test\Unit;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\TestCase as IlluminateTestCase;
@@ -10,7 +10,7 @@ class TestCase extends IlluminateTestCase
     public function createApplication()
     {
         $app = new Application(
-            realpath(__DIR__.'/../')
+            realpath(__DIR__ . '/laravel-forum/')
         );
 
         return $app;

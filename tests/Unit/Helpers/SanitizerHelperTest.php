@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\Helpers;
+namespace Test\Unit\Helpers;
 
-use Test\TestCase;
+use Test\Unit\TestCase;
 use Taskforcedev\LaravelForum\Helpers\Sanitizer as SanitizerHelper;
 
 class SanitizerHelperTest extends TestCase

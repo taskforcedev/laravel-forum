@@ -10,7 +10,7 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="Helper Tests">
-            <directory suffix="Test.php">./tests/Helpers</directory>
+            <directory suffix="Test.php">./tests/Unit/Helpers</directory>
         </testsuite>
     </testsuites>
     <filter>
