@@ -14,4 +14,15 @@ class SanitizerHelperTest extends TestCase
         $this->assertEquals('Taskforcedev\LaravelForum\Helpers\Sanitizer', $class,
             'Sanitizer helper should return the correct class.');
     }
+
+    public function testSanitizerRemovesScriptTagsFromAHtmlString()
+    {
+        $helper = new SanitizerHelper();
+        $html = '<!DOCTYPE html><html><head></head><body><h1>This is my test page</h1><script>alert(\'hello\');</script></body></html>';
+
+        $output = $helper->sanitize($html);
+
+        $this->assertRegExp('/script/', $html, 'HTML string given does regexp match script tag.');
+        $this->assertNotRegExp('/script/', $output, 'Output should not match script tags.');
+    }
 }
