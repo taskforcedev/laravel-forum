@@ -11,6 +11,7 @@ class SanitizerHelperTest extends TestCase
     {
         $helper = new SanitizerHelper();
         $class = get_class($helper);
-        $this->assertEquals('Taskforcedev\LaravelForum\Helpers\Sanitizer', $class, 'Sanitizer helper should return the correct class.');
+        $this->assertEquals('Taskforcedev\LaravelForum\Helpers\Sanitizer', $class,
+            'Sanitizer helper should return the correct class.');
     }
 }
