@@ -9,4 +9,11 @@ install:
   - composer dumpautoload
 
 script:
- - ./vendor/bin/phpcs
+  - phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  slack:
+    secure: MiSTO6QIDI6rqLH5cOx01JJ6LZPFZz/w+xK4rItGPxlf7XwDXKkUE02h5CkyYZByVOdM+8+eNgQT21cfdES4sGUBSbHbZrbm7a4l8QTnB8Y8Th2DNnRYDsw6hT+/zvF4+wRfwRmsUGt5o0OVVa4+T2dLSozkO+H3COBVyu2tOv4=
