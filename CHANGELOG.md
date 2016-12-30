@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
  - Laravel 5.3+ requirement.
  - Migrations are now loaded from the package without requiring to be published.
+ - Now uses latest version of laravel-support package again.
 
 ### Fixed
  - Fix label for forum category on forum creation admin form.
