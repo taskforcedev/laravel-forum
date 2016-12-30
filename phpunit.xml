@@ -19,6 +19,7 @@
             <exclude>
                 <directory suffix=".php">./src/Http</directory>
                 <directory suffix=".php">./src/Models</directory>
+                <file>./src/Helpers/UserHelper.php</file>
                 <file>./src/ServiceProvider.php</file>
             </exclude>
         </whitelist>
